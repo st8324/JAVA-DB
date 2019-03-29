@@ -11,13 +11,13 @@ public class Exam10 {
 		switch(month){
 		case 1:case 3:case 5:case 7:	
 		case 8:case 10:case 12:	
-			System.out.println("31ÀÏ");	break;
+			System.out.println("31ì¼");	break;
 		case 2:	
-			System.out.println("28ÀÏ");	break;
+			System.out.println("28ì¼");	break;
 		case 4:case 6:case 9:case 11:	
-			System.out.println("30ÀÏ");	break;
+			System.out.println("30ì¼");	break;
 		default:
-			System.out.println("Àß¸ø ÀÔ·ÂÇß½À´Ï´Ù.");
+			System.out.println("ì˜ëª» ì…ë ¥í–ˆìŠµë‹ˆë‹¤.");
 		}
 		scan.close();
 	}

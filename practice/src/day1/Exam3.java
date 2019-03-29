@@ -3,8 +3,8 @@ package day1;
 import java.util.Scanner;
 
 public class Exam3 {
-/*	ÄÜ¼Ö¿¡¼­ ¼ıÀÚ¸¦ ÀÔ·Â¹Ş¾Æ ÀÔ·Â¹ŞÀº ¼ıÀÚ°¡ 1º¸´Ù Å©°Å³ª
-	°°°í 100º¸´Ù ÀÛ°Å³ª °°ÀºÁö Ãâ·ÂÇÏ¼¼¿ä.
+/*	ì½˜ì†”ì—ì„œ ìˆ«ìë¥¼ ì…ë ¥ë°›ì•„ ì…ë ¥ë°›ì€ ìˆ«ìê°€ 1ë³´ë‹¤ í¬ê±°ë‚˜
+	ê°™ê³  100ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì€ì§€ ì¶œë ¥í•˜ì„¸ìš”.
 */	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);

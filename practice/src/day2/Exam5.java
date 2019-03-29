@@ -2,19 +2,19 @@ package day2;
 
 public class Exam5 {
 
-	//num°¡ 0ÀÌ¸é 0ÀÌ¶ó°í Ãâ·ÂÇÏ°í, 1ÀÌ¸é 1ÀÌ¶ó°í Ãâ·ÂÇÏ°í
-	//0°ú 1ÀÌ ¾Æ´Ï¸é 0°ú 1ÀÌ ¾Æ´Õ´Ï´Ù¶ó°í Ãâ·ÂÇÏ´Â ¿¹Á¦
+	//numê°€ 0ì´ë©´ 0ì´ë¼ê³  ì¶œë ¥í•˜ê³ , 1ì´ë©´ 1ì´ë¼ê³  ì¶œë ¥í•˜ê³ 
+	//0ê³¼ 1ì´ ì•„ë‹ˆë©´ 0ê³¼ 1ì´ ì•„ë‹™ë‹ˆë‹¤ë¼ê³  ì¶œë ¥í•˜ëŠ” ì˜ˆì œ
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int num = 0;
-		//num°¡ 0ÀÌ¸é
-		//=> num°¡ 0°ú °°´Ù¸é
+		//numê°€ 0ì´ë©´
+		//=> numê°€ 0ê³¼ ê°™ë‹¤ë©´
 		if(num == 0){
-			System.out.println("0ÀÔ´Ï´Ù.");
+			System.out.println("0ì…ë‹ˆë‹¤.");
 		}else if(num == 1){
-			System.out.println("1ÀÔ´Ï´Ù.");
+			System.out.println("1ì…ë‹ˆë‹¤.");
 		}else{//if(num!=0 && num != 1)
-			System.out.println("0°ú 1ÀÌ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("0ê³¼ 1ì´ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 	}
 

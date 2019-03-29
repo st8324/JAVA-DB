@@ -3,14 +3,14 @@ package day2;
 import java.util.Scanner;
 
 public class Exam1 {
-/*	Á¤¼ö¸¦ ÀÔ·Â¹Ş¾Æ ÀÔ·Â¹ŞÀº Á¤¼ö°¡ Â¦¼öÀÎÁö ¾Æ´ÑÁö È®ÀÎÇÏ´Â
-	ÄÚµå¸¦ ÀÛ¼ºÇÏ¼¼¿ä.*/
+/*	ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ì…ë ¥ë°›ì€ ì •ìˆ˜ê°€ ì§ìˆ˜ì¸ì§€ ì•„ë‹Œì§€ í™•ì¸í•˜ëŠ”
+	ì½”ë“œë¥¼ ì‘ì„±í•˜ì„¸ìš”.*/
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int num;
 		num = scan.nextInt();
 		
-		//Â¦¼ö : num¸¦ 2·Î (³ª´©¾úÀ» ¶§ ³ª¸ÓÁö)°¡ 0°ú (°°´Ù)
+		//ì§ìˆ˜ : numë¥¼ 2ë¡œ (ë‚˜ëˆ„ì—ˆì„ ë•Œ ë‚˜ë¨¸ì§€)ê°€ 0ê³¼ (ê°™ë‹¤)
 		boolean isEven = num % 2 == 0;
 		System.out.println(isEven);
 		scan.close();

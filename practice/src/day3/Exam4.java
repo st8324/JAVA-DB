@@ -3,7 +3,7 @@ package day3;
 public class Exam4 {
 
 	public static void main(String[] args) {
-		/*µÎ ¼ö°¡ ¼­·Î¼ÒÀÎÁö ÆÇº°ÇÏ¼¼¿ä.*/
+		/*ë‘ ìˆ˜ê°€ ì„œë¡œì†Œì¸ì§€ íŒë³„í•˜ì„¸ìš”.*/
 		int num1=3, num2=7;
 		int i, gcd=1;
 		for(i=1; i<=num1; i++){
@@ -12,9 +12,9 @@ public class Exam4 {
 			}
 		}
 		if(gcd == 1){
-			System.out.println(num1+"°ú " + num2+"´Â ¼­·Î¼Ò °ü°è");
+			System.out.println(num1+"ê³¼ " + num2+"ëŠ” ì„œë¡œì†Œ ê´€ê³„");
 		}else{
-			System.out.println(num1+"°ú " + num2+"´Â ¼­·Î¼Ò °ü°è°¡ ¾Æ´Ô");
+			System.out.println(num1+"ê³¼ " + num2+"ëŠ” ì„œë¡œì†Œ ê´€ê³„ê°€ ì•„ë‹˜");
 		}
 	}
 

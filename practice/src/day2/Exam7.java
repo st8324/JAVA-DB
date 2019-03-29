@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Exam7 {
 	/*
-	Á¡¼ö°¡ ÁÖ¾îÁö¸é Á¡¼ö¿¡ ¸Â´Â ÇĞÁ¡À» Ãâ·ÂÇÏ´Â ÄÚµå¸¦ ÀÛ¼ºÇÏ¼¼¿ä.
-	90Á¡ÀÌ»ó ~ 100Á¡ÀÌÇÏ : A
-	80Á¡ÀÌ»ó ~ 90Á¡¹Ì¸¸ : B
-	70Á¡ÀÌ»ó ~ 80Á¡¹Ì¸¸ : C
-	60Á¡ÀÌ»ó ~ 70Á¡¹Ì¸¸ : D
-	0Á¡ÀÌ»ó ~ 60Á¡¹Ì¸¸ : F
-	0Á¡¹Ì¸¸, 100Á¡ ÃÊ°ú : Àß¸øµÈ Á¡¼öÀÔ´Ï´Ù.
+	ì ìˆ˜ê°€ ì£¼ì–´ì§€ë©´ ì ìˆ˜ì— ë§ëŠ” í•™ì ì„ ì¶œë ¥í•˜ëŠ” ì½”ë“œë¥¼ ì‘ì„±í•˜ì„¸ìš”.
+	90ì ì´ìƒ ~ 100ì ì´í•˜ : A
+	80ì ì´ìƒ ~ 90ì ë¯¸ë§Œ : B
+	70ì ì´ìƒ ~ 80ì ë¯¸ë§Œ : C
+	60ì ì´ìƒ ~ 70ì ë¯¸ë§Œ : D
+	0ì ì´ìƒ ~ 60ì ë¯¸ë§Œ : F
+	0ì ë¯¸ë§Œ, 100ì  ì´ˆê³¼ : ì˜ëª»ëœ ì ìˆ˜ì…ë‹ˆë‹¤.
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class Exam7 {
 		}else if(score>=0 && score < 60){
 			System.out.println("F");
 		}else{//else if(score<0 || score>100){
-			System.out.println("Àß¸øµÈ Á¡¼öÀÔ´Ï´Ù.");
+			System.out.println("ì˜ëª»ëœ ì ìˆ˜ì…ë‹ˆë‹¤.");
 		}*/
 		if((int)score/10 == 9 || score == 100){
 			System.out.println("A");
@@ -39,7 +39,7 @@ public class Exam7 {
 		}else if(score>=0 && score < 60){
 			System.out.println("F");
 		}else{//else if(score<0 || score>100){
-			System.out.println("Àß¸øµÈ Á¡¼öÀÔ´Ï´Ù.");
+			System.out.println("ì˜ëª»ëœ ì ìˆ˜ì…ë‹ˆë‹¤.");
 		}
 		scan.close();
 	}

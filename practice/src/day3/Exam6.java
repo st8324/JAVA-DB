@@ -3,12 +3,12 @@ package day3;
 public class Exam6 {
 
 	public static void main(String[] args) {
-		//i°¡ num1ÀÇ ¹è¼ö : i % num1 == 0
-		/*¹İº¹È¸¼ö : i´Â 1ºÎÅÍ num1*num2±îÁö ÇÏ³ª¾¿ Áõ°¡
-		½ÇÇà¹®
-		i°¡ num1ÀÇ ¹è¼öÀÌ°í i°¡ num2ÀÇ ¹è¼öÀÌ¸é
-		lcm¿¡ i¸¦ ÀúÀåÇÏ°í ¹İº¹¹®À» ºüÁ®³ª¿Â´Ù.
-		¹İº¹¹®ÀÌ Á¾·áµÈ ÈÄ lcmÀ» Ãâ·ÂÇÑ´Ù.*/
+		//iê°€ num1ì˜ ë°°ìˆ˜ : i % num1 == 0
+		/*ë°˜ë³µíšŒìˆ˜ : iëŠ” 1ë¶€í„° num1*num2ê¹Œì§€ í•˜ë‚˜ì”© ì¦ê°€
+		ì‹¤í–‰ë¬¸
+		iê°€ num1ì˜ ë°°ìˆ˜ì´ê³  iê°€ num2ì˜ ë°°ìˆ˜ì´ë©´
+		lcmì— ië¥¼ ì €ì¥í•˜ê³  ë°˜ë³µë¬¸ì„ ë¹ ì ¸ë‚˜ì˜¨ë‹¤.
+		ë°˜ë³µë¬¸ì´ ì¢…ë£Œëœ í›„ lcmì„ ì¶œë ¥í•œë‹¤.*/
 		int num1 = 10000, num2 = 20000;
 		int i, lcm = 1;
 		for(i=1; i<=num1*num2; i+=1){
@@ -17,17 +17,17 @@ public class Exam6 {
 				break;
 			}
 		}
-		System.out.println(num1+"°ú "+num2+"ÀÇ ÃÖ¼Ò °ø¹è¼ö : " + lcm);
+		System.out.println(num1+"ê³¼ "+num2+"ì˜ ìµœì†Œ ê³µë°°ìˆ˜ : " + lcm);
 		for(i=num1; i<=num1*num2; i+=num1){
 			if(i % num2 == 0){
 				lcm = i;
 				break;
 			}
 		}
-		System.out.println(num1+"°ú "+num2+"ÀÇ ÃÖ¼Ò °ø¹è¼ö : " + lcm);
+		System.out.println(num1+"ê³¼ "+num2+"ì˜ ìµœì†Œ ê³µë°°ìˆ˜ : " + lcm);
 		int tmp;
 		if(num2 > num1){
-			// µÎ ¼ö¸¦ ¹Ù²Û´Ù
+			// ë‘ ìˆ˜ë¥¼ ë°”ê¾¼ë‹¤
 			tmp = num1;
 			num1 = num2;
 			num2 = tmp;
@@ -38,7 +38,7 @@ public class Exam6 {
 				break;
 			}
 		}
-		System.out.println(num1+"°ú "+num2+"ÀÇ ÃÖ¼Ò °ø¹è¼ö : " + lcm);
+		System.out.println(num1+"ê³¼ "+num2+"ì˜ ìµœì†Œ ê³µë°°ìˆ˜ : " + lcm);
 	}
 
 }

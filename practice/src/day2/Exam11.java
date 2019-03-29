@@ -8,22 +8,22 @@ public class Exam11 {
 		// TODO Auto-generated method stub
 		int min = 1;
 		int max = 3;
-		//min~ max»çÀÌÀÇ Á¤¼ö¸¦ ·£´ıÀ¸·Î »ı¼ºÇÏ´Â ÄÚµå
-		//comÀÌ °¡À§(1), ¹ÙÀ§(2), º¸(3)Áß¿¡¼­ ·£´ıÀ¸·Î ÇÏ³ª ¼±ÅÃ
+		//min~ maxì‚¬ì´ì˜ ì •ìˆ˜ë¥¼ ëœë¤ìœ¼ë¡œ ìƒì„±í•˜ëŠ” ì½”ë“œ
+		//comì´ ê°€ìœ„(1), ë°”ìœ„(2), ë³´(3)ì¤‘ì—ì„œ ëœë¤ìœ¼ë¡œ í•˜ë‚˜ ì„ íƒ
 		int com = (int)(Math.random()*(max-min+1) + min);
 		int user = 0;
 		Scanner scan = new Scanner(System.in);
-		System.out.print("°¡À§(1),¹ÙÀ§(2),º¸(3) Áß ÇÏ³ª¸¦ ÀÔ·ÂÇÏ¼¼¿ä : >");
+		System.out.print("ê°€ìœ„(1),ë°”ìœ„(2),ë³´(3) ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : >");
 		user = scan.nextInt();
 		switch(user-com){
 		case 0:
-			System.out.println("¹«½ÂºÎÀÔ´Ï´Ù.");
+			System.out.println("ë¬´ìŠ¹ë¶€ì…ë‹ˆë‹¤.");
 			break;
 		case -1: case 2:
-			System.out.println("ÄÄÇ»ÅÍ ½ÂÀÔ´Ï´Ù.");
+			System.out.println("ì»´í“¨í„° ìŠ¹ì…ë‹ˆë‹¤.");
 			break;
 		case 1: case -2://default:
-			System.out.println("»ç¿ëÀÚ ½ÂÀÔ´Ï´Ù.");
+			System.out.println("ì‚¬ìš©ì ìŠ¹ì…ë‹ˆë‹¤.");
 			break;
 		}
 		scan.close();

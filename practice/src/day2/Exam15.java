@@ -5,15 +5,15 @@ public class Exam15 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int i = 0;
-		//Áõ°¨¿¬»êÀÌ Àß¸øµÈ °æ¿ì
+		//ì¦ê°ì—°ì‚°ì´ ì˜ëª»ëœ ê²½ìš°
 		/*for(i=1; i<=10; i--){
 			System.out.println("Hello");
 		}*/
-		//ÃÊ±âÈ­°¡ Àß¸øµÈ °æ¿ì
+		//ì´ˆê¸°í™”ê°€ ì˜ëª»ëœ ê²½ìš°
 		/*for(i=-2147483648; i<=10; i++){
 			System.out.println("Hello");
 		}*/
-		//Á¶°Ç½ÄÀÌ Àß¸øµÈ °æ¿ì, ¹«ÇÑ·çÇÁ
+		//ì¡°ê±´ì‹ì´ ì˜ëª»ëœ ê²½ìš°, ë¬´í•œë£¨í”„
 		for(i=1; 1<=10; i++){
 			System.out.println("Hello");
 		}

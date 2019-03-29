@@ -3,11 +3,11 @@ package day1;
 import java.util.Scanner;
 
 public class Exam2 {
-	//ÄÜ¼Ö¿¡¼­ ¼ıÀÚ¸¦ ÀÔ·Â¹Ş¾Æ ÀÔ·Â¹ŞÀº ¼ıÀÚ¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+	//ì½˜ì†”ì—ì„œ ìˆ«ìë¥¼ ì…ë ¥ë°›ì•„ ì…ë ¥ë°›ì€ ìˆ«ìë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
-		System.out.println("ÀÔ·ÂÇÑ ¼ö : " + num);
+		System.out.println("ì…ë ¥í•œ ìˆ˜ : " + num);
 		scan.close();
 	}
 

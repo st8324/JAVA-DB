@@ -4,18 +4,18 @@ public class Exam8 {
 	public static void main(String[] args) {
 		int num = 6;
 		/*if(num % 2 == 0 && num % 3 == 0){
-			System.out.println(num + "´Â 6ÀÇ ¹è¼ö");
+			System.out.println(num + "ëŠ” 6ì˜ ë°°ìˆ˜");
 		}*/
 		if(num % 2 == 0){
 			if(num % 3 == 0){
-				System.out.println(num + "´Â 6ÀÇ ¹è¼ö");
+				System.out.println(num + "ëŠ” 6ì˜ ë°°ìˆ˜");
 			}else{
-				System.out.println(num + "´Â 2ÀÇ ¹è¼ö");
+				System.out.println(num + "ëŠ” 2ì˜ ë°°ìˆ˜");
 			}
 		}else if(num % 3 == 0){
-			System.out.println(num + "´Â 3ÀÇ ¹è¼ö");
+			System.out.println(num + "ëŠ” 3ì˜ ë°°ìˆ˜");
 		}else{
-			System.out.println(num + "´Â 2,3,6ÀÇ ¹è¼ö°¡ ¾Æ´Ô");
+			System.out.println(num + "ëŠ” 2,3,6ì˜ ë°°ìˆ˜ê°€ ì•„ë‹˜");
 		}
 	}
 }

@@ -2,12 +2,12 @@ package day2;
 
 public class Exam12 {
 	public static void main(String[] args) {
-		int i = 0; //¹İº¹¹®¿¡¼­ »ç¿ëÇÒ º¯¼ö
+		int i = 0; //ë°˜ë³µë¬¸ì—ì„œ ì‚¬ìš©í•  ë³€ìˆ˜
 		int sum = 0;
 		for(i=1, sum=0; i<=10; i+=1){
 			//sum = sum + i;
 			sum += i;
 		}
-		System.out.println("1ºÎÅÍ 10±îÁöÀÇ ÇÕ : " + sum);
+		System.out.println("1ë¶€í„° 10ê¹Œì§€ì˜ í•© : " + sum);
 	}
 }

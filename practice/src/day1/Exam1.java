@@ -1,7 +1,7 @@
 package day1;
 
 public class Exam1 {
-	//10À» 3À¸·Î ³ª´« °á°ú¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+	//10ì„ 3ìœ¼ë¡œ ë‚˜ëˆˆ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 	public static void main(String[] args) {
 		int num1 = 10, num2 = 3;
 		double res;

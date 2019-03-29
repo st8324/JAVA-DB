@@ -4,15 +4,15 @@ public class Exam4 {
 	public static void main(String[] args) {
 		int age = 20;
 		if(age >= 20){
-			System.out.println("¼ºÀÎ");
+			System.out.println("ì„±ì¸");
 		}else{
-			System.out.println("Ã»¼Ò³â");
+			System.out.println("ì²­ì†Œë…„");
 		}
 		/*if(age >= 20){
-			System.out.println("¼ºÀÎ");
+			System.out.println("ì„±ì¸");
 		}
 		if(age < 20){
-			System.out.println("Ã»¼Ò³â");
+			System.out.println("ì²­ì†Œë…„");
 		}*/
 	}
 }

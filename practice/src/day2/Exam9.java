@@ -7,12 +7,12 @@ public class Exam9 {
 		int num = 4;
 		switch(num%2){
 		case 0://if(num%2 == 0)
-			System.out.println("Â¦¼ö");;
+			System.out.println("ì§ìˆ˜");;
 			break;
 		//..
 		//case 1://default:
 		default:
-			System.out.println("È¦¼ö");
+			System.out.println("í™€ìˆ˜");
 			break;
 		}
 	}

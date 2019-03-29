@@ -1,7 +1,7 @@
 package day3;
 
 public class Exam1 {
-	//1ºÎÅÍ 5±îÁöÀÇ ÇÕ
+	//1ë¶€í„° 5ê¹Œì§€ì˜ í•©
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int i;

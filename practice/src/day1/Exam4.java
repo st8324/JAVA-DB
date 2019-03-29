@@ -3,7 +3,7 @@ package day1;
 import java.util.Scanner;
 
 public class Exam4 {
-	//10°ú 3ÀÇ »ê¼ú¿¬»ê °á°ú¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+	//10ê³¼ 3ì˜ ì‚°ìˆ ì—°ì‚° ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
 		int num1 = scan.nextInt();
