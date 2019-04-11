@@ -1,5 +1,7 @@
 package day12;
 
+import java.util.Scanner;
+
 public class StudentManager {
 	private Student std[];	//학생들 정보를 담을 배열
 	private int count;		//현재 저장된 학생 수
@@ -28,9 +30,14 @@ public class StudentManager {
 		//    std[count]가 같이 사용하기 때문에 매개변수 s가 바뀌면
 		// 	  std[count]도 같이 바뀔수 있다.
 		//std[count++] = s;
-		std[count++] = new Student(s);
-		//std[count] = new Student(s);
-		//count++;
+		//학년,반,번호로 검색해서 해당 학생 정보가 없으면 학생정보 추가
+		//있으면 아무것도 안함
+		if(search(s.getGrade(),s.getClassNum(),s.getNum()) 
+				== -1){
+			std[count++] = new Student(s);
+			//std[count] = new Student(s);
+			//count++;
+		}
 	}
 	
 	/* 기능 : 학생정보 전체 출력
@@ -91,6 +98,52 @@ public class StudentManager {
 			//현재 저장된 갯수를 하나 감소
 			count--;
 		}
+	}
+	public void printMenu(){
+		System.out.println("-------------");
+		System.out.println("1. 학생정보추가");
+		System.out.println("2. 학생정보수정");
+		System.out.println("3. 학생정보삭제");
+		System.out.println("4. 학생정보출력");
+		System.out.println("5. 종료");
+		System.out.print("메뉴를 선택하세요 : ");
+	}
+	/*
+	기능 : Scanner가 주어지면 검색을 위한 학생의 정보를 콘솔을 
+	        통해 입력받아 학생 객체를 만들어 돌려주는 기능
+	매개변수 : Scanner scan
+	리턴타입 : 학생객체 => Student
+	메소드명 : inputSearchStudent
+	*/
+	public Student inputSearchStudent(Scanner scan){
+		Student s = new Student();
+		System.out.print("학년 : ");
+		s.setGrade(scan.nextInt());
+		System.out.print("반 : ");
+		s.setClassNum(scan.nextInt());
+		System.out.print("번호 : ");
+		s.setNum(scan.nextInt());
+		return s;
+	}
+	
+	/*
+	기능 : Scanner가 주어지면 학생의 정보를 콘솔을 통해 입력받아
+	        학생 객체를 만들어 돌려주는 기능
+	매개변수 : Scanner scan
+	리턴타입 : 학생객체 => Student
+	메소드명 : inputStudent
+	*/
+	public Student inputStudent(Scanner scan){
+		Student s = inputSearchStudent(scan);
+		System.out.print("이름 : ");
+		s.setName(scan.next());
+		System.out.print("국어 : ");
+		s.setKor(scan.nextInt());
+		System.out.print("영어 : ");
+		s.setEng(scan.nextInt());
+		System.out.print("수학 : ");
+		s.setMath(scan.nextInt());
+		return s;
 	}
 }
 
