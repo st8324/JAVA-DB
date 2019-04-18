@@ -33,12 +33,18 @@ public class LottoExam {
 		//생성할 수 있는 숫자의 범위보다 만들어야 하는 갯수가 더 크면
 		//중복될수 밖에 없기 때문에 무한루프에 빠지는 경우가 생기것을
 		//막기위한 코드
+		//max : 10, min : 1
+		//max와 min에서 나올 수 있는 중복되지 않은 수는 최대 몇개 10개
+		//coutn : 만들 갯수 예 : 11
+		//randomArr(1,4, 7);
 		if(max-min+1 < count)
 			return null;
 		Set<Integer> set = new HashSet<Integer>();
 		//count개만큼 생성하기 위한 조건식
-		while(set.size()<count){
+		//1 10 4 6 8 21 23
+		while(set.size() < count){
 			//min~max사이의 랜덤한 수를 생성하여 num에 저장
+			//1 10 10 4 6 8 21 23
 			int num = (int)(Math.random()*(max-min+1))+min;
 			//랜덤한 num를 set에 추가
 			set.add(num);
