@@ -136,6 +136,25 @@ public class StdManager {
 		tmp.setMajor(major);
 		return tmp;
 	}
+	/* 기능 : 과목 정보를 입력받아 과목 객체를 생성하여 돌려주는 기능
+	 * 매개변수 : Scanner scan
+	 * 리턴타입 : 과목 객체 => Grade
+	 * 메소드명 : inputSubject
+	 */
+	public Grade inputSubject(Scanner scan){
+		String title, professor, step;
+		int unit;
+		System.out.print("교과목 : ");
+		title = scan.next();
+		System.out.print("담당 교수 : ");
+		professor = scan.next();
+		System.out.print("등급 : ");
+		step = scan.next();
+		System.out.print("학점 : ");
+		unit = scan.nextInt();
+		Grade tmp = new Grade(step, professor, title, unit);
+		return tmp;
+	}
 }
 
 

@@ -119,17 +119,18 @@ public class Std {
 		//this() : 내 생성자를 호출
 		//복사 생성자는 아래에서 구현한 생성자 오버로딩을 호출
 		//하여 코드의 중복을 제거함
-		this(s.name, s.id, s.Sname, s.major, s.avr);
+		this(s.name, s.id, s.Sname, s.major, s.avr,s.subjectList);
 	}
 	//생성자 오버로딩
 	public Std(String name,String id,String sName,
-			String major, double avr){
+			String major, double avr,ArrayList<Grade> subjectList){
 		//this : 나
 		this.name = name;
 		this.id = id;
 		this.Sname = sName;
 		this.major = major;
 		this.avr = avr;
+		this.subjectList = subjectList;
 	}
 	/* 기능 : 학생이 수강과목을 입력하면 subjectList에 추가
 	 * 매개변수 : 수강과목 => Grade grade
@@ -173,6 +174,16 @@ public class Std {
 			sumUnit += tmp.getUnit();
 		}
 		avr = sumPoint/sumUnit;
+	}
+	public boolean printSubjects(){
+		if(subjectList.size() == 0)
+			return false;
+		Iterator<Grade> it = subjectList.iterator();
+		while(it.hasNext()){
+			Grade tmp = it.next();
+			System.out.println(tmp);
+		}
+		return true;
 	}
 }
 

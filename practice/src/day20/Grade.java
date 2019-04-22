@@ -85,6 +85,13 @@ public class Grade {
 		default: return 0;
 		}
 	}
+	@Override
+	public String toString() {
+		return "강의 [강의명 :" + title + ", 담당교수 : " 
+				+ professor + ", 등급 : " + step
+				+ ", 학점 : " + unit + "]";
+	}
+	
 }
 
 
