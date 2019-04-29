@@ -35,7 +35,8 @@ CREATE TABLE `graduation` (
   `graduation_certificate` varchar(45) DEFAULT NULL COMMENT '자격증 제출여부',
   PRIMARY KEY (`graduation_student_num`),
   KEY `graduation_requirement_num_idx` (`graduation_requirement_num`),
-  CONSTRAINT `graduation_requirement_num` FOREIGN KEY (`graduation_requirement_num`) REFERENCES `requirement` (`requirement_num`)
+  CONSTRAINT `graduation_requirement_num` FOREIGN KEY (`graduation_requirement_num`) REFERENCES `requirement` (`requirement_num`),
+  CONSTRAINT `graduation_student_num` FOREIGN KEY (`graduation_student_num`) REFERENCES `student` (`student_num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='졸업';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,6 +46,7 @@ CREATE TABLE `graduation` (
 
 LOCK TABLES `graduation` WRITE;
 /*!40000 ALTER TABLE `graduation` DISABLE KEYS */;
+INSERT INTO `graduation` VALUES (2017160001,2,NULL,NULL,NULL,NULL,NULL,NULL),(2019135135,3,NULL,NULL,NULL,NULL,NULL,NULL),(2019160160,1,'N',500,'N','N','N','N');
 /*!40000 ALTER TABLE `graduation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-26 17:06:25
+-- Dump completed on 2019-04-29 16:22:16

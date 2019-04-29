@@ -38,7 +38,7 @@ CREATE TABLE `requirement` (
   `requirement_test` varchar(45) DEFAULT NULL COMMENT '졸업시험',
   `requirement_certificate` varchar(45) DEFAULT NULL COMMENT '자격증',
   PRIMARY KEY (`requirement_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='졸업요건';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='졸업요건';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,6 +47,7 @@ CREATE TABLE `requirement` (
 
 LOCK TABLES `requirement` WRITE;
 /*!40000 ALTER TABLE `requirement` DISABLE KEYS */;
+INSERT INTO `requirement` VALUES (1,2019,'컴공','학사',150,90,60,600,'Y','N','N','Y'),(2,2017,'컴공','학사',150,95,55,500,'Y','N','N','Y'),(3,2019,'전자','학사',140,90,50,700,'N','Y','Y','N');
 /*!40000 ALTER TABLE `requirement` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-26 17:06:24
+-- Dump completed on 2019-04-29 16:22:16
