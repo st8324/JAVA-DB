@@ -1,4 +1,4 @@
-/* website 데이터베이스에서 카페 회원수를 쿼리문으로 수정해보세요.*/
+/* 4. website 데이터베이스에서 카페 회원수를 쿼리문으로 수정해보세요.*/
 UPDATE cafe 
 SET 
     cafe_total = (SELECT 

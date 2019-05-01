@@ -1,4 +1,4 @@
-/* 2. 홍길동 학생의 2019년도 1학기 수강 과목들을 출력하는 쿼리문을 작성해보세요. */
+/* 2. university 데이터베이스에서 홍길동 학생의 2019년도 1학기 수강 과목들을 출력하는 쿼리문을 작성해보세요. */
 SELECT 
     course_student_num,
     student.student_name,
