@@ -1,0 +1,105 @@
+﻿1. green 데이터 베이스 생성
+create database green;
+
+show databases;
+
+2. subject 테이블 생성
+ - no int
+ - title varchar(20)
+ - time int
+
+use green;
+
+create table subject(
+no int,
+title varchar(20),
+time int
+);
+
+show tables;
+
+explain subject;
+3. student 테이블 생성
+ - no int
+ - name varchar(11)
+ - age int
+
+create table student(
+no int,
+name varchar(11),
+age int
+);
+
+show tables;
+
+explain student;
+
+4. subject 테이블 기본키 지정
+ - no를 기본키로 지정
+
+alter table subject
+add constraint subject_pk primary key(no);
+
+explain subject; 
+
+5. student 테이블 기본키 지정
+ - no를 기본키로 지정
+
+alter table student
+add constraint student_pk primary key(no);
+
+explain student; 
+
+6.
+
+create table class(
+no int,
+subject_no int,
+teacher varchar(11),
+start_date datetime,
+end_date datetime
+);
+
+explain class;
+
+7. class 테이블의 기본키와 외래키 설정
+ - no를 기본키로
+ - class 테이브의 subject_no를 외래키로 지정하는데
+   subject 테이블의 no와 연결
+
+alter table class
+add constraint class_pk primary key(no);
+
+alter table class
+add constraint class_fk foreign key(subject_no)
+references subject(no);
+
+explain class;
+1. greenmaster 사용자를 추가하고 green 
+   DB에 모든 권한을 부여
+ - 비번은 cjgreen
+
+create user 'greenmaster'@'localhost' identified by 'cjgreen';
+
+use mysql;
+
+select user,host from user;
+
+grant all on green.* to 'greenmaster'@'localhost';
+
+show grants for 'greenmaster'@'localhost';
+
+2. green 사용자를 추가하고 green DB에서 
+   데이터를 관리할 수 있는 권한을 부여
+ - 비번은 cjgreen
+
+create user 'green'@'localhost' identified by 'cjgreen';
+
+use mysql;
+
+select user,host from user;
+
+grant insert,update,select on green.* to 'green'@'localhost';
+
+show grants for 'green'@'localhost';
+
