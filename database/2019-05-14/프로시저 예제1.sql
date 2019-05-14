@@ -26,10 +26,10 @@ BEGIN
     SET r_test = (SELECT requirement_test FROM requirement WHERE requirement_num = in_requirement_num);	
     SET r_certificate = (SELECT requirement_certificate FROM requirement WHERE requirement_num = in_requirement_num);	
     IF r_english <= s_english 
-		AND ( r_paper = 'N' || (r_paper = 'Y' AND s_paper='Y') )
-        AND ( r_test = 'N' || (r_test = 'Y' AND s_test='Y') )
-        AND ( r_project = 'N' || (r_project = 'Y' AND s_project='Y') )
-        AND ( r_certificate = 'N' || (r_certificate = 'Y' AND s_certificate='Y') ) THEN
+		AND ( r_paper = 'N' OR (r_paper = 'Y' AND s_paper='Y') )
+        AND ( r_test = 'N' OR (r_test = 'Y' AND s_test='Y') )
+        AND ( r_project = 'N' OR (r_project = 'Y' AND s_project='Y') )
+        AND ( r_certificate = 'N' OR (r_certificate = 'Y' AND s_certificate='Y') ) THEN
         UPDATE 	graduation
         SET		graduation_ok = 'Y'
 		WHERE	graduation_student_num = in_student_num;
