@@ -16,19 +16,28 @@
 
 * INSERT, UPDATE, DELETE의 경우에 트리거 지원
 
-* MySQL은 각 테이블에 각 형태의 하나의 트리거만 허용한다. 
+* MySQL은 각 테이블에 각 형태의 다양한 트리거를 허용한다. 
 
 * 문법
 
 * ``` mysql
   DELIMITER //
-  CREATE TRIGGER 트리거명
-  	BEFORE|AFTER INSERT|UPDATE|DELETE ON 테이블명
-  	[REFERENCING NEW ROW AS n, OLD ROW AS O]
-  	FOR EACH ROW
-  	BEGIN
-  	...
-  	END //
+  CREATE
+      [DEFINER = user]
+      TRIGGER trigger_name
+      trigger_time trigger_event
+      ON tbl_name FOR EACH ROW
+      [trigger_order]
+      BEGIN
+      trigger_body
+      END //
+      /*
+      trigger_time: { BEFORE | AFTER }
+      
+      trigger_event: { INSERT | UPDATE | DELETE }
+      
+      trigger_order: { FOLLOWS | PRECEDES } other_trigger_name
+      */
   DELIMITER ;
   
   ```
@@ -101,4 +110,13 @@
   ```
 
 * class 테이블에 total에 1이 입력된 것을 확인 할 수 있다.
+
+
+
+### 트리거와 프로시저
+
+1. 트리거 이벤트(INSERT | UPDATE | DELETE)가 실행된 테이블을 트리거를 통해 수정하려 하면 에러 발생 > 이러한 경우에는 프로시저로 처리해야함
+   * 예를 들어 A 테이블에 INSERT 트리거를 생성하는 과정에서 트리거 처리에서 A테이블을 UPDATE를 하게 되는 경우 에러가 발생한다. 이러한 경우에는 프로시저로 처리해야한다.
+2. 트리거는 매 이벤트(INSERT | UPDATE | DELETE)마다 동일하게 처리하여 적용하는 경우 사용하고 프로시저는 그렇지 않은 경우 사용한다
+   * 예를 들어 통신사가 회원 등급을 결정할 때 전년도 사용 비용을 기준으로 처리하기 때문에 회원 등급을 결정하는 처리를 트리거가 아닌 프로시저로 해야한다.
 
