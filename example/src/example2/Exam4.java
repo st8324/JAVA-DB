@@ -2,31 +2,104 @@ package example2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Exam4 {
 
 	public static void main(String[] args) {
-		CardPack cp = new CardPack();
-		cp.shuffle();
-		cp.show();
-		System.out.println();
-		cp.give();
-		cp.give();
-		cp.give();
-		cp.give();
-		cp.give();
-		cp.give();
-		cp.give();
-		cp.give();
-		cp.show();
+		boolean s1=false,s2 = false;
+		int cnt = 0;
+		while( !(s1 || s2)){
+			CardPack cp = new CardPack();
+			ArrayList<Card> user = new ArrayList<Card>();
+			ArrayList<Card> dealer = new ArrayList<Card>();
+			for(int i=1; i<=7; i++){
+				user.add(cp.give());
+				dealer.add(cp.give());
+			}
+			
+			//System.out.println(PockerRule.pare(user));
+			s1 = PockerRule.straight(user);
+			System.out.println(s1);
+			System.out.println(user);
+			
+			//System.out.println(PockerRule.pare(dealer));
+			s2 = PockerRule.straight(dealer);
+			System.out.println(s2);
+			System.out.println(dealer);
+			cnt++;
+		}
+		System.out.println(cnt);
 	}
 }
+
+class PockerRule{
+	/* 기능 : 페어를 찾는 메소드
+	 * 매개변수 : 카드 리스트
+	 * 리턴타입 : 0 : 페어없음, 1 : 원페어, 2 : 투페어(페어가 2개이상)
+	 * */
+	public static int pare(ArrayList<Card> list){
+		int pareCnt = 0; //페어의 갯수
+		for(int i=0; i<list.size(); i++){
+			int cnt = 0;	//같은 숫자의 갯수
+			for(int j=0; j<list.size(); j++){
+				if(list.get(i).getNum() == list.get(j).getNum()){
+					cnt++;
+				}
+			}
+			if(cnt == 2){
+				pareCnt++;
+			}
+		}
+		return pareCnt/2;
+	}
+	public static boolean straight(ArrayList<Card>list){
+		
+		Collections.sort(list, new Comparator<Card>(){
+			@Override
+			public int compare(Card c1, Card c2) {
+				return c1.getNum()  - c2.getNum();
+			}
+		});
+		//1이 있는지 체크
+		boolean flag = false;		
+		for(int i=0; i<list.size()-3; i++){
+			int straightCnt = 1;
+			int std = list.get(i).getNum();
+			if(std == 1){
+				flag = true;
+			}
+				
+			for(int j=i+1; j<list.size(); j++){
+				if(std+straightCnt == list.get(j).getNum()){
+					straightCnt++;
+				}else if(std+straightCnt-1 
+						== list.get(j).getNum()){
+					continue;
+				}else{
+					break;
+				}
+			}
+			//마운틴의 경우, 10,j,q,k
+			if(straightCnt == 4 && std == 10 && flag){
+				return true;
+			}
+			if(straightCnt >= 5)	return true; 
+		}
+		return false;
+	}
+}
+
+
+
+
 
 class CardPack{
 	private ArrayList<Card> list = new ArrayList<Card>();
 	
 	public CardPack(){
 		cardPackSetAll();
+		shuffle();
 	}
 	/* 기능 : 모양이 주어지면 해당 모양의 1번카드부터 K카드까지 팩에 추가 */
 	private void cardPackSet(String shape){
