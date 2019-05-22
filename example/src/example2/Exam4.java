@@ -19,12 +19,12 @@ public class Exam4 {
 			}
 			
 			//System.out.println(PockerRule.pare(user));
-			s1 = PockerRule.straight(user);
+			s1 = PockerRule.straight(user) == 3;
 			System.out.println(s1);
 			System.out.println(user);
 			
 			//System.out.println(PockerRule.pare(dealer));
-			s2 = PockerRule.straight(dealer);
+			s2 = PockerRule.straight(dealer) == 3;
 			System.out.println(s2);
 			System.out.println(dealer);
 			cnt++;
@@ -53,16 +53,17 @@ class PockerRule{
 		}
 		return pareCnt/2;
 	}
-	public static boolean straight(ArrayList<Card>list){
-		
+	// 0:스트레이트 아님, 1 : 스트레이트, 2 : 백스트레이트, 3:마운틴
+	public static int straight(ArrayList<Card>list){
+		//카드 리스트를 정렬 
 		Collections.sort(list, new Comparator<Card>(){
 			@Override
 			public int compare(Card c1, Card c2) {
 				return c1.getNum()  - c2.getNum();
 			}
 		});
-		//1이 있는지 체크
-		boolean flag = false;		
+		boolean flag = false; //1이 있는지 체크하는 변수
+		boolean isStraight = false;
 		for(int i=0; i<list.size()-3; i++){
 			int straightCnt = 1;
 			int std = list.get(i).getNum();
@@ -82,17 +83,17 @@ class PockerRule{
 			}
 			//마운틴의 경우, 10,j,q,k
 			if(straightCnt == 4 && std == 10 && flag){
-				return true;
+				return 3;
 			}
-			if(straightCnt >= 5)	return true; 
+			if(straightCnt >= 5 && std == 1 ) return 2;
+			if(straightCnt >= 5 ) isStraight = true; 
 		}
-		return false;
+		if(isStraight){
+			return 1;
+		}
+		return 0;
 	}
 }
-
-
-
-
 
 class CardPack{
 	private ArrayList<Card> list = new ArrayList<Card>();
