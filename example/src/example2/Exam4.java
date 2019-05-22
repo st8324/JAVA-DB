@@ -19,12 +19,16 @@ public class Exam4 {
 			}
 			
 			//System.out.println(PockerRule.pare(user));
-			s1 = PockerRule.straight(user) == 3;
+			//s1 = PockerRule.straight(user) == 3;
+			//s1 = PockerRule.flush(user);
+			s1 = PokerRule.fullHouse(user);
 			System.out.println(s1);
 			System.out.println(user);
 			
 			//System.out.println(PockerRule.pare(dealer));
-			s2 = PockerRule.straight(dealer) == 3;
+			//s2 = PockerRule.straight(dealer) == 3;
+			//s2 = PockerRule.flush(dealer);
+			s2 = PokerRule.fullHouse(dealer);
 			System.out.println(s2);
 			System.out.println(dealer);
 			cnt++;
@@ -33,11 +37,26 @@ public class Exam4 {
 	}
 }
 
-class PockerRule{
+class PokerRule{
 	/* 기능 : 페어를 찾는 메소드
 	 * 매개변수 : 카드 리스트
 	 * 리턴타입 : 0 : 페어없음, 1 : 원페어, 2 : 투페어(페어가 2개이상)
 	 * */
+	public static int triple(ArrayList<Card> list){
+		int tripleCnt = 0; //페어의 갯수
+		for(int i=0; i<list.size(); i++){
+			int cnt = 0;	//같은 숫자의 갯수
+			for(int j=0; j<list.size(); j++){
+				if(list.get(i).getNum() == list.get(j).getNum()){
+					cnt++;
+				}
+			}
+			if(cnt == 3){
+				tripleCnt++;
+			}
+		}
+		return tripleCnt/3;
+	}
 	public static int pare(ArrayList<Card> list){
 		int pareCnt = 0; //페어의 갯수
 		for(int i=0; i<list.size(); i++){
@@ -92,6 +111,28 @@ class PockerRule{
 			return 1;
 		}
 		return 0;
+	}
+	public static boolean flush(ArrayList<Card> list){
+		int sCnt = 0;//스페이스 갯수
+		int cCnt = 0;//클로버 갯수
+		int hCnt = 0;//하트 갯수
+		int dCnt = 0;//다이아 갯수
+		for(int i=0; i<list.size(); i++){
+			if(list.get(i).getShape().equals("S")) sCnt++;
+			else if(list.get(i).getShape().equals("H")) hCnt++;
+			else if(list.get(i).getShape().equals("D")) dCnt++;
+			else if(list.get(i).getShape().equals("C")) cCnt++;
+		}
+		if(sCnt >= 5 || hCnt >= 5 || dCnt >= 5 || cCnt >= 5)
+			return true;
+		return false;
+	}
+	public static boolean fullHouse(ArrayList<Card>list){
+		if(pare(list)>=1 && triple(list) == 1)
+			return true;
+		if(triple(list) == 2)
+			return true;
+		return false;
 	}
 }
 
@@ -170,11 +211,11 @@ class Card{
 		if(shape.equals("S")){
 			s += "♠";
 		}else if(shape.equals("H")){
-			s += "♥";
+			s += "♡";
 		}else if(shape.equals("C")){
 			s += "♣";
 		}else if(shape.equals("D")){
-			s += "◆";
+			s += "◇";
 		}
 		
 		if(num == 11)	s+="J";
