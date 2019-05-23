@@ -21,16 +21,16 @@ public class Exam4 {
 			//System.out.println(PockerRule.pare(user));
 			//s1 = PockerRule.straight(user) == 3;
 			//s1 = PockerRule.flush(user);
-			//s1 = PokerRule.straightFlush(user) == 3;
-			s1 = PokerRule.poker(user);
+			s1 = PokerRule.straightFlush(user) >= 1;
+			//s1 = PokerRule.poker(user);
 			System.out.println(s1);
 			System.out.println(user);
 			
 			//System.out.println(PockerRule.pare(dealer));
 			//s2 = PockerRule.straight(dealer) == 3;
 			//s2 = PockerRule.flush(dealer);
-			//s2 = PokerRule.straightFlush(dealer)==3;
-			s2 = PokerRule.poker(dealer);
+			s2 = PokerRule.straightFlush(dealer) >= 1;
+			//s2 = PokerRule.poker(dealer);
 			System.out.println(s2);
 			System.out.println(dealer);
 			cnt++;
@@ -111,7 +111,7 @@ class PokerRule{
 		}
 		return 0;
 	}
-	public static boolean flush(ArrayList<Card> list){
+	public static String flush(ArrayList<Card> list){
 		int sCnt = 0;//스페이스 갯수
 		int cCnt = 0;//클로버 갯수
 		int hCnt = 0;//하트 갯수
@@ -122,9 +122,11 @@ class PokerRule{
 			else if(list.get(i).getShape().equals("D")) dCnt++;
 			else if(list.get(i).getShape().equals("C")) cCnt++;
 		}
-		if(sCnt >= 5 || hCnt >= 5 || dCnt >= 5 || cCnt >= 5)
-			return true;
-		return false;
+		if(sCnt >= 5 )	return "S";
+		if(cCnt >= 5 )	return "C";
+		if(dCnt >= 5 )	return "D";
+		if(hCnt >= 5 )	return "H";
+		return null;
 	}
 	public static boolean fullHouse(ArrayList<Card>list){
 		if(pare(list)>=1 && triple(list) == 1)
@@ -133,7 +135,29 @@ class PokerRule{
 			return true;
 		return false;
 	}
-	
+	/*  0 : 아님
+	 *  1 : 스티플
+	 *  2 : 백스티플
+	 *  3 : 마운틴
+	 */
+	public static int straightFlush(ArrayList<Card>list){
+		String s=flush(list);
+		ArrayList<Card> tmp = new ArrayList<>();
+		//카드리스트가 플러시가 아니면 스티플를 더이상 비교할 필요가 없다.
+		if(s == null)
+			return 0;
+		//카드 리스트를 복사 => 플러시가 아닌 카드들을 제거해야하기 때문에
+		tmp.addAll(list);
+		//플러시가 아닌 카드들을 제거
+		//시작 : 0 마지막 : 6 증감연산자 : ++
+		//시작 : 6 마지막 : 0 증감연산자 : --
+		for(int i=tmp.size()-1; i>=0; i--){
+			if(!tmp.get(i).getShape().equals(s)){
+				tmp.remove(i);
+			}
+		}
+		return straight(tmp);
+	}
 	
 }
 
