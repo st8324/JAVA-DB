@@ -21,14 +21,16 @@ public class Exam4 {
 			//System.out.println(PockerRule.pare(user));
 			//s1 = PockerRule.straight(user) == 3;
 			//s1 = PockerRule.flush(user);
-			s1 = PokerRule.fullHouse(user);
+			//s1 = PokerRule.straightFlush(user) == 3;
+			s1 = PokerRule.poker(user);
 			System.out.println(s1);
 			System.out.println(user);
 			
 			//System.out.println(PockerRule.pare(dealer));
 			//s2 = PockerRule.straight(dealer) == 3;
 			//s2 = PockerRule.flush(dealer);
-			s2 = PokerRule.fullHouse(dealer);
+			//s2 = PokerRule.straightFlush(dealer)==3;
+			s2 = PokerRule.poker(dealer);
 			System.out.println(s2);
 			System.out.println(dealer);
 			cnt++;
@@ -38,40 +40,37 @@ public class Exam4 {
 }
 
 class PokerRule{
+	private static int sameCnt(ArrayList<Card> list, int count){
+		int sCnt = 0; //페어의 갯수
+		for(int i=0; i<list.size(); i++){
+			int cnt = 0;	//같은 숫자의 갯수
+			for(int j=0; j<list.size(); j++){
+				if(list.get(i).getNum() == list.get(j).getNum()){
+					cnt++;
+				}
+			}
+			if(cnt == count){
+				sCnt++;
+			}
+		}
+		return sCnt/count;
+	}
 	/* 기능 : 페어를 찾는 메소드
 	 * 매개변수 : 카드 리스트
 	 * 리턴타입 : 0 : 페어없음, 1 : 원페어, 2 : 투페어(페어가 2개이상)
 	 * */
 	public static int triple(ArrayList<Card> list){
-		int tripleCnt = 0; //페어의 갯수
-		for(int i=0; i<list.size(); i++){
-			int cnt = 0;	//같은 숫자의 갯수
-			for(int j=0; j<list.size(); j++){
-				if(list.get(i).getNum() == list.get(j).getNum()){
-					cnt++;
-				}
-			}
-			if(cnt == 3){
-				tripleCnt++;
-			}
-		}
-		return tripleCnt/3;
+		return sameCnt(list,3);
 	}
 	public static int pare(ArrayList<Card> list){
-		int pareCnt = 0; //페어의 갯수
-		for(int i=0; i<list.size(); i++){
-			int cnt = 0;	//같은 숫자의 갯수
-			for(int j=0; j<list.size(); j++){
-				if(list.get(i).getNum() == list.get(j).getNum()){
-					cnt++;
-				}
-			}
-			if(cnt == 2){
-				pareCnt++;
-			}
-		}
-		return pareCnt/2;
+		return sameCnt(list,2);
 	}
+	public static boolean poker(ArrayList<Card>list){
+		if(sameCnt(list,4) == 1)
+			return true;
+		return false;
+	}
+	
 	// 0:스트레이트 아님, 1 : 스트레이트, 2 : 백스트레이트, 3:마운틴
 	public static int straight(ArrayList<Card>list){
 		//카드 리스트를 정렬 
@@ -134,6 +133,8 @@ class PokerRule{
 			return true;
 		return false;
 	}
+	
+	
 }
 
 class CardPack{
