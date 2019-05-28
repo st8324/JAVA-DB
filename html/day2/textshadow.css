@@ -1,0 +1,28 @@
+div{
+	font : normal 24px verdata;
+}
+.drop-text{
+	text-shadow: 3px 3px;
+}
+.red-text{
+	text-shadow: 3px 3px red;
+}
+.blur-text{
+	text-shadow: 3px 3px 5px skyblue;
+}
+.glow-text{
+	text-shadow: 0px 0px 3px red;
+}
+.word-text{
+	text-shadow: 0px 0px 3px darkblue;
+}
+.three-text{
+	color: white;
+	text-shadow: 2px 2px 4px black;
+}
+.multi-text{
+	color: yellow;
+	text-shadow: 2px 2px 2px black,
+							 0px 0px 25px blue,
+							 0 0 5px darkblue;
+}
