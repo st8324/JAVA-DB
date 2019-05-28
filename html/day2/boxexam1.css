@@ -1,0 +1,43 @@
+/* 
+box-sizing : border-box; 가 없으면 width와 height는
+컨텐츠의 가로와 세로에 해당한다. 
+박스의 크기(가로 또는 세로) = 패딩 + 컨텐츠 + 테두리
+이기 때문에 
+52px = 0px + 50px + 1px(위/좌) + 1px(아래/우)
+이다.
+*/
+/* .box{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 10px solid black;
+} */
+/* box-sizing : border-box;가 있다면 
+width와 height는 박스 크기의 가로와 세로에 해당한다.
+50px = 0px + ? + 1px(위/좌) + 1px(아래/우)이므로
+컨텐츠의 크기가 48px이 된다.
+*/
+.box{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 1px solid red;
+	box-sizing: border-box;
+	background-color: red;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+.box:nth-child(3n-1){
+	background-color: green;
+	border-color: green;
+	position: relative;
+}
+.box:nth-child(2){
+	top:20px;
+	left:20px;
+}
+.box:nth-child(5){
+	bottom: 20px;
+	right: -20px;
+}
