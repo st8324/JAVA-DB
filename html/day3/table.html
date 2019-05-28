@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style>
+		.table th,
+		.table td{
+			width: 100px;
+			height: 40px;
+			border: 1px solid black;
+		}
+		table{
+			border-collapse: collapse;
+		}
+		
+		.tbl thead tr{
+			background-color: gray;
+			color: white;
+		}
+		.tbl td,
+		.tbl th{
+			width: 100px;
+			height: 40px;
+		}
+		.tbl td{
+			text-align: right;
+			border-bottom: 1px solid gray;
+		}
+		.tbl tr td:nth-child(1){
+			text-align: center;
+		}
+		.tbl tbody tr{
+			color: red;
+		}
+		.tbl tbody tr:hover,
+		.tbl tfoot tr:hover{
+			background-color: blue;
+			color: white;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		
+	</style>
+	<title>Document</title>
+</head>
+<body>
+	<table class="table">
+		<thead>
+			<tr>
+					<th>이름</th>
+					<th>나이</th>
+					<th>주소</th>
+					<th>성별</th>
+					<th colspan="2">주민번호</th>
+				</tr>
+		</thead>
+		<tfoot>
+			<td> - </td>
+			<td>20</td>
+			<td> - </td>
+			<td>남</td>
+			<td> - </td>
+			<td> - </td>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td rowspan="2">홍길동</td>
+				<td>20</td>
+				<td>대한민국</td>
+				<td>남</td>
+				<td>000101-3xxxxxx</td>
+				<td>000101-3xxxxxx</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td>대한민국</td>
+				<td>남</td>
+				<td>000101-3xxxxxx</td>
+				<td>000101-3xxxxxx</td>
+			</tr>
+		</tbody>
+		<!-- <tfoot></tfoot> -->
+	</table>
+	<br>
+	<br>
+	<table class="tbl">
+		<thead>
+			<tr>
+				<th>이름/과목</th>
+				<th>HTML</th>
+				<th>CSS</th>
+				<th>JS</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>합</td>
+				<td>200</td>
+				<td>190</td>
+				<td>180</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>홍길동</td>
+				<td>100</td>
+				<td>100</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>임꺽정</td>
+				<td>100</td>
+				<td>90</td>
+				<td>80</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
