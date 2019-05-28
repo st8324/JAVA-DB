@@ -1,0 +1,28 @@
+/*
+태그클래스명, 태그아이디명, 아이디명클래스명
+=>태그&&클래스명, 태그&&아이디명, 아이디명&&클래스명일 때 
+b태그이면서 클래스명이 italic인 경우 b.italic을 적용한다.
+*/
+b.italic{
+	font-style: italic;
+}
+body b{
+	color: green;
+}
+body>b{
+	font-weight: 900;
+	color: blue;	
+}
+
+b{
+	font-weight: 100;
+	color: red;
+}
+body>div>a{
+	text-decoration: none;
+	font-weight: bold;
+	color: red;
+}
+#id{
+	
+}
