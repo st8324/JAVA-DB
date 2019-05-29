@@ -1,0 +1,29 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+}
+.container{
+	height: 100vh;
+	border: 3px solid yellow;
+	padding: 10px;
+	position: relative;
+}
+
+.left{
+	float: left;
+	/* position: absolute;
+	display: inline-block; */
+	width: calc(50% - 5px);
+	height: 100%;
+	border: 3px solid red;
+}
+.right{
+	float: left;
+	/* position: absolute;
+	right: 0; 
+	display: inline-block;*/
+	width: calc(50% - 5px);
+	height: 100%;
+	border: 3px solid blue;
+	margin-left: 10px;
+}
