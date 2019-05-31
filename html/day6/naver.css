@@ -54,6 +54,58 @@
 	position: absolute;
 	right: 0;
 }
+.icon-search{
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	background-position: -4px -60px;
+	top: 14px;
+	left: 14px;
+}
+.search{
+	width: 405px;
+	height: 23px;
+	margin: 12px 0 0 9px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+	line-height: 23px;
+	font-weight: bold;
+}
+.v-keyboard{
+	position: absolute;
+	padding: 15px 6px;
+	top: 50%;
+	right: 76px;
+	margin-top: -21px;
+}
+.auto-search{
+	position: absolute;
+	padding: 19px 12px 19px 16px;
+	top: 50%;
+	right: 49px;
+	margin-top: -21px;
+}
+.icon-keyboard{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 19px;
+	height: 11px;
+	background-position: -33px -60px;
+}
+.icon-auto-down{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 9px;
+	height: 4px;
+	background-position: -87px -60px;
+}
+.icon-auto-up{
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	width: 9px;
+	height: 4px;
+	background-position: -138px -60px;
+	display: none;
+}
 
 /* 중단 메뉴 관련 css */
 .container-banner{
