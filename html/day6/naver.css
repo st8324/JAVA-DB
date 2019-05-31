@@ -1,0 +1,141 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.container{
+	min-width: 1100px;
+}
+.container-top{
+	height: 218px;
+	border-bottom: 1px solid #d1d8e4
+}
+.container-search{
+	height: 170px;
+}
+/* 로고 관련 css */
+.container-search .container-min{
+	position: relative;
+}
+.logo-box{
+	position: absolute;
+	top: 50%;
+	left: -2px;
+	margin-top: -25px;
+}
+.logo{
+	display: block;
+	width: 198px;
+	height: 48px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+	background-position: -4px -4px;
+	overflow: hidden;
+}
+/* 검색창 관련 css */
+.search-box{
+	width: 521px;
+	height: 49px;
+	position: absolute;
+	top: 50%;
+	left: 219px;
+	margin-top: -20px;
+}
+.search-input-box{
+	height: 49px;
+	border: 2px solid #03cf5d;
+	width: 474px;
+	position: absolute;
+}
+.search-btn{
+	width: 49px;
+	height: 49px;
+	background: #03cf5d;
+	position: absolute;
+	right: 0;
+}
+
+/* 중단 메뉴 관련 css */
+.container-banner{
+	height: 47px;
+	border-top: 1px solid #f1f3f6;
+}
+
+
+
+
+
+.container-min{
+	width: 1080px;
+	height: 100%;
+	border: 1px solid black;
+}
+.div-center{
+	margin: 0 auto;
+}
+.container-bottom{
+	background-color: rgb(242,244,247);
+}
+.container-bottom-out{
+	width: 1100px;
+	padding: 8px 10px 0;
+}
+.container-bottom-in{
+	width: 100%;
+}
+.container-bottom-in::after{
+	clear: both;
+	display: block;
+	content: "";
+}
+.bottom-left{
+	float: left;
+	width: 740px;
+}
+.bottom-right{
+	float: right;
+	width: 332px;
+}
+
+.bottom-left>div,
+.bottom-right>div{
+	background-color: white;
+}
+
+.bottom-box{
+	margin-bottom: 8px;
+}
+.content-left1{
+	height: 120px;
+	background-image: url('/img/bg_timeboard_740x120.png');
+}
+.content-left2{
+	height: 46px;
+}
+.content-left3{
+	height: 246px;
+}
+.content-left4{
+	height: 884px;
+}
+.content-left5{
+	height: 130px;
+}
+.border-gray{
+	border: 1px solid #dee3eb;
+}
+.content-right1{
+	height: 120px;
+}
+.content-right2{
+	height: 142px;
+}
+.content-right3{
+	height: 150px;
+}
+.content-right4{
+	height: 884px;
+}
+.content-right5{
+	height: 130px;
+}
