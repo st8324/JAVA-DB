@@ -11,12 +11,7 @@ a{
 .txt-none{
 	text-decoration: none;
 }
-.flot-right{
-	float: right;
-}
-.flot-left{
-	float: left;
-}
+
 
 .container{
 	min-width: 1100px;
@@ -569,10 +564,30 @@ a.naver-green{
 	border-bottom: 3px solid #03cf5d;
 	color: #03cf5d;
 }
+.l4-bottom{
+	padding: 18px 2px 3px 16px;
+}
+.l4-bottom::after{
+	clear: both;
+	content: "";
+	display: block;
+}
+.l4-bitem{
+	float: left;
+	margin: 0 14px 19px 0;
+	width: 166px;
+	height: 185px;
+	position: relative;
+	border: 1px solid black;
+}
+.l4-bitem-w2{
+	width: 346px;
+}
+.l4-bitem-h2{
+	height: 389px;
+}
 /* 왼쪽 4번째 컨텐츠 CSS 끝 */
-/* 왼쪽 5번째 컨텐츠 CSS 시작 */
 
-/* 왼쪽 5번째 컨텐츠 CSS 끝 */
 
 .container-min{
 	width: 1080px;
@@ -648,4 +663,10 @@ a.naver-green{
 }
 .content-right5{
 	height: 130px;
+}
+.flot-right{
+	float: right;
+}
+.flot-left{
+	float: left;
 }
