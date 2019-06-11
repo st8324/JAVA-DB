@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = new Array();
+		arr.push('1');
+		arr.push(2);
+		console.log('arr : '+arr);
+		console.log(arr);
+		var res = arr.pop();
+		console.log(arr);
+		console.log(res);
+		arr.push(2);
+		console.log(arr);
+		arr[1] = 3;
+		console.log(arr);
+		arr[3] = 4;
+		console.log(arr);
+		console.log(arr[2]);
+
+		//join : 각 배열의 원소값들 사이에 구분자를 추가하여 
+		//하나의 문자열을 만들어 주는 함수
+		var str = arr.join(',');
+		console.log(str);
+		console.log(''+arr);
+
+		arr.unshift('2');
+		console.log(arr);
+
+		arr.shift();
+		console.log(arr);
+		/*
+		push, pop은 뒤쪽에서 추가 또는 제거
+		unshift, shift는 앞쪽에서 추가 또는 제거
+		*/
+		console.log(arr.length);
+		console.log(arr.indexOf('1'));
+		console.log(arr.indexOf(1));
+		arr.push('1');
+		console.log(arr);
+		console.log(arr.indexOf('1',1));
+
+		var cnt = 0;
+		var idx = 0;
+		while(true){
+			idx = arr.indexOf('1',idx);
+			if(idx == -1)
+				break;
+			idx = idx+1;
+			cnt++;
+		}
+		console.log('arr에 있는 문자열1의 개수 : ' + cnt);
+		console.log(arr.lastIndexOf('1'));
+		cnt = 0;
+		idx = arr.length-1;
+		while(true){
+			idx = arr.lastIndexOf('1',idx);
+			if(idx == -1)
+				break;
+			if(idx == 0){
+				cnt++;
+				break;
+			}
+			idx = idx-1;
+			cnt++;
+		}
+		console.log('arr에 있는 문자열1의 개수 : ' + cnt);
+		console.log('------------------------------');
+		//reverse();
+		//원본 배열을 거꾸로 변환하고 해당 배열을 리턴
+		var arr2 = arr.reverse();
+		console.log(arr2);
+		console.log(arr);
+		console.log('------------------------------');
+		//slice(start,end);
+		//start번지부터 end-1번지까지 복사해서 새로운 배열 생성
+		//하여 리턴
+		var arr3 = arr.slice(0,arr.length-1);
+		console.log(arr3);
+		console.log(arr);
+		console.log('------------------------------');
+		//splice(start,deleteCount);
+		//start번지부터 deleteCount 개수만큼 삭제한 후 
+		//삭제된 배열을 리턴
+		var arr4 = arr.splice(0,2);
+		console.log(arr4);
+		console.log(arr);
+		console.log('------------------------------');
+	</script>
+</body>
+</html>
