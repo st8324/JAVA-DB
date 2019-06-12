@@ -8,11 +8,29 @@
 </head>
 <body>
 	<h1>생년월일 입력</h1>
-	<input type="text" placeholder="yyyy" onchange="checkYear(this)">
-	<input type="text" placeholder="mm" onchange="checkMonth(this)">
-	<input type="text" placeholder="dd" onchange="checkDay(this)">
+	<input type="text" placeholder="yyyy" onchange="check(this,4,1980,2019,'년도를')">
+	<input type="text" placeholder="mm" onchange="check(this,2,1,12,'월을')">
+	<input type="text" placeholder="dd" onchange="check(this,2,1,31,'일을')">
 	<script>
 		window.onload = function(){
+		}
+		function check(obj,length,min, max, error){
+			var val = obj.value;
+			//4자리 체크
+			if( !checkLength(val,length)){
+				alert(length+'자리를 입력하세요.');
+				return ;
+			}
+			//숫자만 입력했는지 체크
+			if(!checkInteger(val)){
+				alert('숫자만 입력해야합니다.');
+				return;
+			}
+			//출생년도 범위 체크
+			if(!checkRange(min,max,parseInt(val))){
+				alert('올바른 '+error+' 입력하세요');
+				return ;
+			}
 		}
 		function checkYear(objYear){
 			var year = objYear.value;
