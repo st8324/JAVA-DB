@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var human = {
+			name:'홍길동', 
+			age:29, 
+			address:'청주시',
+			toSting:function(){
+				var str = '이름 : ' + this.name + ', 나이 : '
+								+ this.age + ', 주소 : ' + this.address;
+				console.log(str);
+				return str;
+			}
+		};
+		console.log(human.name);
+		console.log(human['name']);
+		human.toSting();
+		human.name = '임꺽정';
+		human.toSting();
+		human.id = '000101-3xxxxxx';
+		console.log(human.id);
+	</script>
+</body>
+</html>
