@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script>
+	//window.onload가 있는 경우
+	//1. head태그안에 있는 script태그가 실행되는데 window.onload에
+	//의해 body태그안에 있는 코드들이 생성된 후 배치 될때까지 기다린다.
+	window.onload=function(){
+		//window.onload가 없는 경우
+		//1. head태그안에 있는 script태그가 실행되서 에러 발생
+		//window.onload가 있는 경우
+		//3. 아래 코드 실행
+		var test = document.getElementById('test').value;
+		console.log(test);
+	}
+	</script>
+</head>
+<body>
+	<!-- window.onload가 없는 경우 -->
+	<!-- window.onload가 있는 경우 -->
+	<!-- 2.input 태그 생성 및 배치 -->
+	<input type="text" id="test" value="123">
+	
+</body>
+</html>
