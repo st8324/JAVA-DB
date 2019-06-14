@@ -27,9 +27,10 @@
 			//될 소지를 없앤다.
 			//document.getElementById(id).classList.remove('display-none');
 			//id가 id인 요소의 클래스 리스트에 display-block 클래스를 추가
-			document.getElementById(id).classList.add('display-block');
+			//document.getElementById(id).classList.add('display-block');
 			//document.getElementById(id).classList.replace('display-none','display-block');
-			//document.getElementById(id).classList.toggle('display-none');
+			//toggle : 있으면 제거, 없으면 추가
+			document.getElementById(id).classList.toggle('display-none');
 		}
 		function displayClassList(id){
 			//id가 id인 요소의 클래스 리스트를 배열로 가져옴
