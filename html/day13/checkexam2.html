@@ -26,16 +26,16 @@
 		<div class="box"></div>
 	</div>
 	<div>
-		<input type="checkbox" value="blue" onchange="setBgColor(this.value)"> 파랑
+		<input type="checkbox" value="blue" onchange="setBgColor2(this.value)"> 파랑
 	</div>
 	<div>
-		<input type="checkbox" value="red" onchange="setBgColor(this.value)"> 빨강
+		<input type="checkbox" value="red" onchange="setBgColor2(this.value)"> 빨강
 	</div>
 	<div>
-		<input type="checkbox" value="yellow" onchange="setBgColor(this.value)"> 노랑
+		<input type="checkbox" value="yellow" onchange="setBgColor2(this.value)"> 노랑
 	</div>
 	<div>
-		<input type="checkbox" value="gray" onchange="setBgColor(this.value)"> 회색
+		<input type="checkbox" value="gray" onchange="setBgColor2(this.value)"> 회색
 	</div>
 	<script>
 		//1. 전역 배열 생성
@@ -64,6 +64,23 @@
 			//배열 저장된 색상을 순서대로 박스의 배경색으로 지정
 			for(var i=0; i<colorArray.length; i++){
 				boxArray[i].classList.add('bg-'+colorArray[i]);
+			}
+		}
+		function setBgColor2(color){
+			var inputArray = document.getElementsByTagName('input');
+			var colorArray2 = [];
+			for(var i=0; i<inputArray.length; i++){
+				if(inputArray[i].type == 'checkbox'
+					&& inputArray[i].checked == true){
+						colorArray2.push(inputArray[i].value);
+				}
+			}
+			var boxArray = document.getElementsByClassName('box');
+			for(var i=0; i<boxArray.length; i++){
+				boxArray[i].classList = 'box';
+			}
+			for(var i=0; i<colorArray2.length; i++){
+				boxArray[i].classList.add('bg-'+colorArray2[i]);
 			}
 		}
 	</script>
