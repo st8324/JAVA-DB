@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	.bg-red{	background-color: red;}
+	.bg-blue{	background-color: blue;}
+	.bg-yellow{	background-color: yellow;}
+	.bg-gray{	background-color: gray;}
+	.box{
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		border: 1px solid black;
+	}
+	.display-none{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<div>
+		<input type="checkbox" value="blue" onchange="setBgColor(this.value)"> 파랑
+	</div>
+	<div>
+		<input type="checkbox" value="red" onchange="setBgColor(this.value)"> 빨강
+	</div>
+	<div>
+		<input type="checkbox" value="yellow" onchange="setBgColor(this.value)"> 노랑
+	</div>
+	<div>
+		<input type="checkbox" value="gray" onchange="setBgColor(this.value)"> 회색
+	</div>
+	<script>
+		//1. 전역 배열 생성
+		var colorArray = [];	//var colorArray = new Array();
+
+		function setBgColor(color){
+			//2. 이벤트가 발생된 체크박스가 이전에 체크가 된 상태인지
+			//   아닌지를 확인
+			var idx = colorArray.indexOf(color);
+			//3. 지금 체크 된 경우
+			if(idx == -1){
+				//3.1 배열에 해당 색상 추가
+				colorArray.push(color);
+			}
+			//4. 지금 체크 해제된 경우
+			else{
+				//4.1 배열에 해당 색상 삭제
+				colorArray.splice(idx,1);
+			}
+			//클래스가 box인 요소의 모든 객체들을 가져옴
+			var boxArray = document.getElementsByClassName('box');
+			//모든 박스 클래스에 색상 관련 클래스 제거
+			for(var i=0; i<boxArray.length; i++){
+				boxArray[i].classList = 'box';
+			}
+			var pos = -1;//pos는 색칠이 된 마지막 박스의 번지
+			//배열 저장된 색상을 순서대로 박스의 배경색으로 지정
+			for(var i=0; i<colorArray.length; i++){
+				boxArray[i].classList.add('bg-'+colorArray[i]);
+				pos = i;
+			}
+			//i == 0이면 색칠한 박스가 하나도 없다는 의미
+			//pos == 0이면 색칠한 박스가 하나도 없다는 의미가 아니고 0번지
+			//박스가 색칠이 되었다는 의미
+			if(pos == -1)	return;
+			for(var i = pos+1 ; i<boxArray.length ;i++ ){
+				boxArray[i].classList.add('display-none');
+			}
+		}
+		function setBgColor2(color){
+			var inputArray = document.getElementsByTagName('input');
+			var colorArray2 = [];
+			for(var i=0; i<inputArray.length; i++){
+				if(inputArray[i].type == 'checkbox'
+					&& inputArray[i].checked == true){
+						colorArray2.push(inputArray[i].value);
+				}
+			}
+			var boxArray = document.getElementsByClassName('box');
+			for(var i=0; i<boxArray.length; i++){
+				boxArray[i].classList = 'box';
+			}
+			for(var i=0; i<colorArray2.length; i++){
+				boxArray[i].classList.add('bg-'+colorArray2[i]);
+			}
+		}
+	</script>
+</body>
+</html>
