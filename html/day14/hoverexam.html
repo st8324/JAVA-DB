@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	.auto-scroll{
+		height: 30px;
+		width: 100px;
+		border: 1px solid black;
+	}
+	.search-list{
+		height: 500px;
+		border: 1px solid blue;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 50vw;
+		display: none;
+	}
+	.container{
+		position: relative;
+	}
+	.display-block{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="auto-scroll" onmouseover="show()"></div>
+		<div class="search-list" onmouseout="hiddenBox()"></div>
+	</div>
+	<script>
+		function hiddenBox(){
+			document.getElementsByClassName('search-list')[0].
+				classList.remove('display-block');
+		}
+		function show(){
+			document.getElementsByClassName('search-list')[0].
+				classList.add('display-block');
+		}
+	</script>
+</body>
+</html>
