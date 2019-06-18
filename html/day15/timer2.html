@@ -34,7 +34,7 @@
 		var MM = 0;
 		var hh = 0;
 		var id;
-
+		var checkCount = 0;//기록을 몇번 했는지 
 		//시작/기록 버튼을 눌렀을 경우 첫번째는 시작,
 		//두번째 부터는 시간 기록
 		//writeTime이란 함수를 만들어 객체와 시간 문자열을 넣어주면
@@ -48,15 +48,21 @@
 				//1. 정지 기능 제거
 				//isRunning = false;//시간 찍는것을 막는 코드이기 때문에 주석 처리
 				//clearInterval(id);//timer동작 자체를 막는 코드이기 때문에 주석 처리
+				//출력된 시간을 하나씩 미는 작업
+				updateRecord();
 				//2. 시간을 기록하는 작업 추가
-				writeTime(document.getElementsByClassName('record')[0]);
+				if(checkCount<3)
+					writeTime(document.getElementsByClassName('record')[checkCount]);
+				else
+					writeTime(document.getElementsByClassName('record')[2]);
+				checkCount++;
 			}
 		}
 		function reset(){
 			mm = 0;			ss = 0;			MM = 0;			hh = 0;
 			writeTime(document.getElementsByClassName('timer')[0]);
 			isRunning = false;
-			
+			checkCount = 0;
 		}
 		function timer(){
 			if(isRunning){
@@ -87,6 +93,13 @@
 		}
 		function writeTime(obj){
 			obj.innerHTML = getTime();
+		}
+		function updateRecord(){
+			if(checkCount<3)			return ;
+			var recordArr = document.getElementsByClassName('record');
+			for(var i=0; i<recordArr.length-1; i++){
+				recordArr[i].innerHTML = recordArr[i+1].innerHTML;
+			}
 		}
 	</script>
 </body>
