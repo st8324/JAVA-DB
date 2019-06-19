@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" onchange="change1()" placeholder="chage예제1">
+	<input type="text" onchange="change2(this.value)" placeholder="chage예제2-1">
+	<input type="text" onchange="change3(this)" placeholder="chage예제2-2">
+	<input type="text" onchange="change4(this.value)" placeholder="chage예제3">
+	<script>
+		function change1(){
+			alert('내용이 변경되었습니다.');
+		}
+		function change2(text){
+			alert('내용이 '+text+'(으)로 변경되었습니다.');
+		}
+		function change3(obj){
+			alert('내용이 '+obj.value+'(으)로 변경되었습니다.');
+		}
+		var oldText='';
+		//입력창 내용이 변경되면 (onchange) 
+		//이전값과 지금 값을 메세지 창으로 출력 후(alert)
+		//지금 값을 이전값으로 변경
+		function change4(newText){
+			alert('내용이 ['+oldText+']에서 ['
+				+newText+'](으)로 변경되었습니다.');
+			oldText = newText;
+		}
+	</script>
+</body>
+</html>
