@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	주문 메뉴 <br>
+	<input type="checkbox" value="짜장면"	class="checkbox"
+	 onchange="updateOrderList(this.checked,this.value)">
+	짜장면<br>
+	<button onclick="order2()">주문</button>
+	<script>
+	function order1(){
+		var checkList 
+			= document.getElementsByClassName('checkbox');
+		var orderList='';
+		if(checkList[0].checked)
+			orderList = checkList[0].value;
+		alert('주문 내역 : ' + orderList);
+	}
+	var list = [];
+	function updateOrderList(isChecked, menu){
+		//메뉴가 선택되면 리스트에 추가
+		if(isChecked){
+			list.push(menu);
+		}
+		//메뉴가 해제되면 리스트에 제거
+		else{
+			//제거할 메뉴가 몇번지에 있는지 검색
+			//indexOf 함수는 리스트에 menu 원소가 있는지 
+			//없는지 검색해서 있으면 해당 번지를(0이상)
+			//없으면 -1를 리턴한다.
+			var index = list.indexOf(menu);
+			//제거할 메뉴가 리스트에 있으면
+			//index가 0보다 크거나 같다는 의미는 list에 menu가
+			//있다는 의미이다.
+			if(index >= 0)
+				//메뉴가 리스트에 있기 때문에 
+				//해당 메뉴가 있는 위치(번지)부터 1개를 제거한다
+				list.splice(index,1);
+		}
+	}
+	function order2(){
+		var orderList = '';
+		if(list.length != 0)
+			orderList = list[0];
+		else
+			orderList = '';
+		alert('주문내역 : ' + orderList);
+	}
+	</script>
+</body>
+</html>
