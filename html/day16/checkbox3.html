@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	주문 메뉴 <br>
+	<input type="checkbox" value="짜장면"	class="checkbox"
+	 onchange="updateOrderList(this.checked,this.value)">
+	짜장면<br>
+	<input type="checkbox" value="짬뽕"	class="checkbox"
+	 onchange="updateOrderList(this.checked,this.value)">
+	 짬뽕<br>
+	<input type="checkbox" value="탕수육"	class="checkbox"
+	 onchange="updateOrderList(this.checked,this.value)">
+	 탕수육<br>
+	<input type="checkbox" value="볶음밥"	class="checkbox"
+	 onchange="updateOrderList(this.checked,this.value)">
+	 볶음밥<br>
+	<input type="checkbox" value="간짜장"	class="checkbox"
+	 onchange="updateOrderList(this.checked,this.value)">
+	 간짜장<br>
+	<button onclick="order2()">주문</button>
+	<script>
+
+	function order1(){
+		var checkList 
+			= document.getElementsByClassName('checkbox');
+		var orderList=[];
+		for(var i =0; i<checkList.length ;i++){
+			if(checkList[i].checked)
+				orderList.push(checkList[i].value);
+		}
+		if(orderList.length != 0)
+			alert('주문 내역 : ' + orderList.join(','));
+		else
+			alert('주문내역이 없습니다.');
+	}
+
+
+	var list = [];
+	function updateOrderList(isChecked, menu){
+		if(isChecked){
+			list.push(menu);
+		}
+		else{
+			var index = list.indexOf(menu);
+			if(index >= 0)
+				list.splice(index,1);
+		}
+	}
+	function order2(){
+		if(list.length != 0)
+			alert('주문내역 : ' + list.join(','));	
+		else
+			alert('주문내역이 없습니다.');
+	}
+	</script>
+</body>
+</html>
