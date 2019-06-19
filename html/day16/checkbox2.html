@@ -13,7 +13,9 @@
 	짜장면<br>
 	<button onclick="order2()">주문</button>
 	<script>
+
 	function order1(){
+
 		var checkList 
 			= document.getElementsByClassName('checkbox');
 		var orderList='';
@@ -21,7 +23,11 @@
 			orderList = checkList[0].value;
 		alert('주문 내역 : ' + orderList);
 	}
+
+
 	var list = [];
+	//전역 배열 list에 메뉴를 추가하거나 삭제하는 함수
+	//메뉴와 해당 메뉴의 체크 여부가 매개변수로 필요
 	function updateOrderList(isChecked, menu){
 		//메뉴가 선택되면 리스트에 추가
 		if(isChecked){
@@ -44,12 +50,10 @@
 		}
 	}
 	function order2(){
-		var orderList = '';
 		if(list.length != 0)
-			orderList = list[0];
+			alert('주문내역 : ' + list[0]);	
 		else
-			orderList = '';
-		alert('주문내역 : ' + orderList);
+			alert('주문내역이 없습니다.');
 	}
 	</script>
 </body>
