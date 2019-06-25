@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#remove').click(function(){
+				//본인(p태그의 첫번재 요소)과 자식들을 같이 지움
+				$('p').eq(0).remove();
+			});
+			$('#empty').click(function(){
+				//본인(p태그의 첫번째 요소)은 제거하지 않고
+				//자손들만 다 지움
+				$('p').first().empty();
+			});
+		})
+	</script>
+	<title>Document</title>
+</head>
+<body>
+	<button id="remove">제거(remove)</button>
+	<button id="empty">제거(empty)</button>
+	<p>안녕하세요.</p>
+	<p>제 이름은 홍길동입니다.</p>
+	<p>만나서 반갑습니다.</p>
+</body>
+</html>
