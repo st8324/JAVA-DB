@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+	*{		border: 1px solid black;	}
+	.blue{	border-color: blue;}
+	</style>
+	<script>
+	$(document).ready(function(){
+		//div태그와 같은 부모를 가지는 모든 요소들에 blue 클래스 추가
+		//$('div').siblings().addClass('blue');
+		//div태그와 같은 부모를 가지는 모든 요소들 중에서
+		//h1태그 요소들에 blue 클래스 추가
+		//$('div').siblings('h1').addClass('blue');
+		//div 태그와 같은 부모를 가지는 요소들 중에서
+		//div 태그 바로 다음 요소에(하나만) blue 클래스 추가
+		//$('div').next().addClass('blue');
+		//div 태그와 같은 부모를 가지는 요소들 중에서
+		//div 태그 바로 이전 요소에(하나만) blue 클래스 추가
+		//$('div').prev().addClass('blue');
+		//div 태그와 같은 부모를 가지는 요소들 중에서
+		//div 태그 다음 요소들에(모두) blue 클래스 추가
+		//$('div').nextAll().addClass('blue');
+		//div 태그와 같은 부모를 가지는 요소들 중에서
+		//div 태그 다음 요소중 p태그들에(모두) blue 클래스 추가
+		//$('div').nextAll('p').addClass('blue');
+		//div 태그와 같은 부모를 가지는 요소들 중에서
+		//div 태그 다음 요소들 중 p태그전까지 모든 요소에게 blue 클래스 추가
+		$('div').nextUntil('p').addClass('blue');
+	});
+	</script>
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<h1>안녕1</h1>
+		<h2>안녕2</h2>
+		<p>안녕하세요.</p>
+		<div>안녕하세요.2</div>
+		<h1>hi</h1>
+		<p>hello</p>
+	</div>
+	<p>안녕하세요.3</p>
+</body>
+</html>
