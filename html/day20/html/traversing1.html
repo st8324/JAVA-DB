@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<style>
+	*{
+		border: 1px solid black;
+	}
+	.red{
+		border-color: red;
+	}
+	</style>
+	<script>
+	$(document).ready(function(){
+		//조상들 검색
+		//span 태그의 부모에 빨간색 테두리 추가
+		//$('span').parent().addClass('red');
+		//span 태그의 조상들에 빨간색 테두리 추가
+		//$('span').parents().addClass('red');
+		//span 태그의 조상중에서 p태그들만 빨간색 테두리 추가
+		//$('span').parents('p').addClass('red');
+		//span 태그의 조상중에서 p태그들과 body태그만 빨간색 테두리 추가
+		//$('span').parents('p,body').addClass('red');
+		//span 태그의 조상주에서 body태그 전까지만 빨간색 테두리 추가
+		//$('span').parentsUntil('body').addClass('red');
+		//자손들 검색
+		//body태그의 자식들에게 빨간색 테두리 추가
+		//$('body').children().addClass('red');
+		//body태그의 자식들 중에서 div태그들만 빨간색 테두리 추가
+		//$('body').children('div').addClass('red');
+		//body태그의 자손들 중에서 h1 태드들만 빨간색 테두리 추가
+		//$('body').find('h1').addClass('red');
+		//body태그의 자손들 중에서 h1 태그이면서 클래스 abc를 가지고 있는
+		//요소들만 빨간색 테두리 추가
+		$('body').find('h1.abc').addClass('red');
+	});
+	</script>
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<h1 class="abc">안녕하세요1</h1>
+		<h1>안녕하세요1</h1>
+		<h2>안녕하세요1-2</h2>
+	</div>
+	<p>
+		<span>안녕하세요2</span>
+	</p>
+</body>
+</html>
