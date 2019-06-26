@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+	$(document).ready(function(){
+		var day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		//페이지 로딩 시 첫 일은 기준이 6월이므로 6월에 맞는 일을 넣어준다.
+		addDay(6);
+		//월 셀렉트 박스의 값이 변하면 실행되는 이벤트 등록
+		$('#month').change(function(){
+			//현재 선택된 월의 value를 읽어옴
+			var month = $(this).val();
+			addDay(month);
+		})
+		function addDay(month){
+			//반복문을 일수만큼 반복하여 option태그와 원하는 일을 문자열로 생성하여 추가
+			var str = '';
+			for(var i=1; i<=day[month-1];i++){
+				str += '<option value="'+i+'">'+i+'일</option>'
+			}
+			//일 셀렉트 박스에 3에서 생성한 문자열을 html 코드로 넣어준다.
+			$('#day').html(str);
+		}
+	});
+	</script>
+	<title>Document</title>
+</head>
+<body>
+	<select id="month">
+		<option value="1">1월</option>
+		<option value="2">2월</option>
+		<option value="3">3월</option>
+		<option value="4">4월</option>
+		<option value="5">5월</option>
+		<option value="6" selected>6월</option>
+		<option value="7">7월</option>
+		<option value="8">8월</option>
+		<option value="9">9월</option>
+		<option value="10">10월</option>
+		<option value="11">11월</option>
+		<option value="12">12월</option>
+	</select>
+	<select id="day"></select>
+</body>
+</html>
