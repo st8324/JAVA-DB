@@ -9,7 +9,7 @@
 	$(document).ready(function(){
 		var day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 		//페이지 로딩 시 첫 일은 기준이 6월이므로 6월에 맞는 일을 넣어준다.
-		addDay(6);
+		//addDay(6);
 		//월 셀렉트 박스의 값이 변하면 실행되는 이벤트 등록
 		$('#month').change(function(){
 			//현재 선택된 월의 value를 읽어옴
@@ -17,8 +17,9 @@
 			addDay(month);
 		})
 		function addDay(month){
+			if(month < 1 || month >12)	return;
 			//반복문을 일수만큼 반복하여 option태그와 원하는 일을 문자열로 생성하여 추가
-			var str = '';
+			var str = '<option value="0">일</option>';
 			for(var i=1; i<=day[month-1];i++){
 				str += '<option value="'+i+'">'+i+'일</option>'
 			}
@@ -31,12 +32,13 @@
 </head>
 <body>
 	<select id="month">
+		<option value="0"selected>월</option>
 		<option value="1">1월</option>
 		<option value="2">2월</option>
 		<option value="3">3월</option>
 		<option value="4">4월</option>
 		<option value="5">5월</option>
-		<option value="6" selected>6월</option>
+		<option value="6">6월</option>
 		<option value="7">7월</option>
 		<option value="8">8월</option>
 		<option value="9">9월</option>
@@ -44,6 +46,8 @@
 		<option value="11">11월</option>
 		<option value="12">12월</option>
 	</select>
-	<select id="day"></select>
+	<select id="day">
+		<option value="0">일</option>
+	</select>
 </body>
 </html>
