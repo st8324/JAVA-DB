@@ -266,6 +266,9 @@ a{
 	right: 0;
 	display: none;
 }
+.realtime-search ul{
+	position: relative;
+}
 /* 컨텐츠 오른쪽1 css*/
 .lg-container{
 	padding: 15px 25px;
@@ -315,6 +318,7 @@ a{
 	line-height: 16px;
 	letter-spacing: -1px;
 	display: block;
+	float: left;
 }
 .nc-icon{
 	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
@@ -349,7 +353,13 @@ a{
 a.naver-green{
 	color: #00ab33;
 }
-
+.news-ticker{
+	width: 340px;
+	height: 20px;
+	margin-top: -2px;
+	float: left;
+	overflow: hidden;
+}
 /* 오른쪽 2번째 컨텐츠 CSS 시작 */
 .r2-top{
 	padding-left: 15px;
@@ -702,4 +712,7 @@ a.naver-green{
 }
 .position-relative{
 	position: relative;
+}
+.display-block{
+	display: block;
 }
