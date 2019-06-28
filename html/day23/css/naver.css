@@ -679,7 +679,6 @@ a.naver-green{
 	background-position: 0 -208px;
 }
 .more-sub-menu{
-	width: 234px;
 	height: 45.8px;
 	padding-top: 8px;
 	background-color: #fff;
@@ -687,6 +686,7 @@ a.naver-green{
 	right: -5px;
 	top: -47px;
 }
+
 .sub1>a:nth-child(1){
 	float: left;
 	width: 98px;
@@ -718,12 +718,80 @@ a.naver-green{
 	padding: 5px;
 	background: #fff;
 }
-.sub1 .close{
+.more-sub-menu .close{
 	display: block;
 	width: 17px;
 	height: 17px;
 	background-position: -191px -257px;
 	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_themecast_v180607.png);
+}
+.sub2{
+	height: 45.8px;
+}
+.sub2 a:nth-child(1){
+	float: left;
+	width: 73px;
+	height: 28px;
+	border: 1px solid #e3e7ee;
+	background: #fff;
+	color: #444;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 29px;
+}
+.sub2 a:nth-child(2){
+	float: left;
+	margin-left: 8px;
+	width: 53px;
+	height: 28px;
+	border: 1px solid #e3e7ee;
+	background: #fff;
+	color: #444;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: 700;
+	font-size: 12px;
+	font-size: 12px;
+	line-height: 29px;
+}
+.sub2 a:nth-child(3){
+	float: left;
+	margin-left: 5px;
+	width: 53px;
+	height: 28px;
+	border: 1px solid #e3e7ee;
+	background: #fff;
+	color: #444;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 29px;
+}
+.sub2 a:nth-child(4){
+	float: left;
+	margin: 2px 0 0 9px;
+	padding: 5px;
+	background: #fff;
+}
+.sub2 .init{
+	display: inline-block;
+	margin-right: 5px;
+	width: 15px;
+	height: 15px;
+	background-position: -132px -291px;
+	vertical-align: -3px;
+	background-image: url(https://s.pstatic.net/static/www/img/2018/sp_themecast_v180607.png);
+}
+.sub1::after,.sub2::after{
+	content: "";
+	clear: both;
+	display: block;
 }
 /* 더보기 클릭 css 끝*/
 

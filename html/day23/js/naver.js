@@ -74,22 +74,45 @@ $(document).ready(function(){
 		$(this).find('.l3-item-1').toggleClass('display-block');
 		$(this).find('.l3-item').toggleClass('display-none');
 	})
+
+	//더보기 또는 접기 버튼 클릭하면 
 	$('.more').click(function(){
+		//접기 버튼을 누르면 박스 접기
 		if($(this).hasClass('fold')){
 			moreBoxClose();	
 		}
-		$('.more-bg-box').toggleClass('display-none');
-		$('.more-box').toggleClass('display-none');
-		$(this).toggleClass('fold');
+		//아니면 박스 열기
+		else
+			moreBoxOpen();
 	})
+	//메뉴 설정 클릭
 	$('.sub1>a:nth-child(2)').click(function(){
+		$('.sub1').addClass('display-none');
+		$('.sub2').removeClass('display-none');
 		$('.setting-list input[type=checkbox]').removeClass('display-none');
 	})
+	//각 서브메뉴 닫기 버튼 클릭
+	$('.more-sub-menu .more-close').click(function(){
+		moreBoxClose();
+	})
+	//취소버튼
+	$('.sub2 a:nth-child(3)').click(function(){
+		moreBoxClose();
+		moreBoxOpen();
+	})
 	function moreBoxOpen(){
-		
+		moreBox();
+		$('.sub1').removeClass('display-none');
 	}
 	function moreBoxClose(){
+		moreBox();
+		$('.sub2').addClass('display-none');
 		$('.setting-list input[type=checkbox]').addClass('display-none');	
+	}
+	function moreBox(){
+		$('.more-bg-box').toggleClass('display-none');
+		$('.more-box').toggleClass('display-none');
+		$('.more').toggleClass('fold');
 	}
 });
 
