@@ -74,5 +74,10 @@ $(document).ready(function(){
 		$(this).find('.l3-item-1').toggleClass('display-block');
 		$(this).find('.l3-item').toggleClass('display-none');
 	})
+	$('.more').click(function(){
+		$('.more-bg-box').toggleClass('display-none');
+		$('.more-box').toggleClass('display-none');
+		$(this).toggleClass('fold');
+	})
 });
 
