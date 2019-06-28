@@ -75,9 +75,21 @@ $(document).ready(function(){
 		$(this).find('.l3-item').toggleClass('display-none');
 	})
 	$('.more').click(function(){
+		if($(this).hasClass('fold')){
+			moreBoxClose();	
+		}
 		$('.more-bg-box').toggleClass('display-none');
 		$('.more-box').toggleClass('display-none');
 		$(this).toggleClass('fold');
 	})
+	$('.sub1>a:nth-child(2)').click(function(){
+		$('.setting-list input[type=checkbox]').removeClass('display-none');
+	})
+	function moreBoxOpen(){
+		
+	}
+	function moreBoxClose(){
+		$('.setting-list input[type=checkbox]').addClass('display-none');	
+	}
 });
 
