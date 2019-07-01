@@ -158,6 +158,7 @@ $(document).ready(function(){
 		//접기 버튼을 누르면 박스 접기
 		if($(this).hasClass('fold')){
 			moreBoxClose();	
+			displayArr();
 		}
 		//아니면 박스 열기
 		else
@@ -174,20 +175,30 @@ $(document).ready(function(){
 	//각 서브메뉴 닫기 버튼 클릭
 	$('.more-sub-menu .more-close').click(function(){
 		moreBoxClose();
+		displayArr();
 	})
 	//취소버튼
 	$('.sub2 a:nth-child(3)').click(function(){
 		moreBoxClose();
 		moreBoxOpen();
+		displayArr();
 	})
 	//확인버튼
 	$('.sub2 a:nth-child(2)').click(function(){
 		//tmpArr에 있는 값을 arr에 저장
 		arr = copyArr(tmpArr);
-
+		if(arr.length == 0)
+			alert('선택된 메뉴가 없습니다. 초기설정으로 돌아갑니다.');
 		moreBoxClose();
 		displayArr();
 	})
+	//초기화 버튼 
+	$('.sub2 a:nth-child(1)').click(function(){
+		arr = [];
+		moreBoxClose();
+		displayArr();
+		alert('초기 설정으로 돌아갑니다.');
+	});
 	//체크박스 선택 시
 	$('.setting-list input[type=checkbox]').change(function(){
 		//체크박스 값에 따라 배열 처리 후 알람을 띄울지 말지 결정
@@ -241,6 +252,7 @@ $(document).ready(function(){
 		$('.setting-list input[type=checkbox]').addClass('display-none');	
 		//tmpArr 비움
 		tmpArr = [];
+		displayArr();
 	}
 	function moreBox(){
 		$('.more-bg-box').toggleClass('display-none');
