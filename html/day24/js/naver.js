@@ -70,6 +70,13 @@ $(document).ready(function(){
 	// 	$(this).parent().find('.l3-item').removeClass('display-none');
 		
 	// })
+	$('.l3-item-p').hover(function(){
+		$(this).find('.l3-item-1').toggleClass('display-block');
+		$(this).find('.l3-item').toggleClass('display-none');
+	})
+
+	//--------------더 보기 기능 ----------------------
+
 	//검은색 배너의 기본 리스트를 클래스이름으로 저장
 	var defaultArr = ['dic','news','stock',
 						'land','map','movie','music','book','comic'];
@@ -82,21 +89,16 @@ $(document).ready(function(){
 	//메뉴 설정을 클릭하면 동작=>copArr(arr,tmpArr)
 	//메뉴 설정에서 선택 후 확인 버튼 클릭하면 동작
 	//   =>copyArr(tmpArr,arr)
-	function copyArr(arr1, arr2){
-		//복사할 내용이 비었으면 복사를 하지 않음
-		if(arr1.length == 0){
-			arr2= [];
-			return;
-		}
-		//복사
-		arr2 = arr1.slice(0);
+	function copyArr(arr1){
+		var arr2 = arr1.slice(0);
+		return arr2;
 	}
 	//arr에 있는 값을 기준으로 checkbox의 체크 상태를 결정
 	//메뉴 설정 클릭 시 동작
 	function checkArr(){
 		$('.setting-list input[type=checkbox]').each(function(){
 			var data = $(this).val();
-			if(arr.indexOf(data)>0)
+			if(arr.indexOf(data)>=0)
 				$(this).prop('checked',true);
 			else
 				$(this).prop('checked',false);
@@ -112,7 +114,7 @@ $(document).ready(function(){
 	function arrCheck(obj,max){
 		var data = obj.val();
 		var index = tmpArr.indexOf(data);
-		if(index>0){
+		if(index>=0){
 			tmpArr.splice(index,1);
 			return 1;
 		}else if(tmpArr.length<max){
@@ -147,12 +149,9 @@ $(document).ready(function(){
 			})
 		}
 	}
-	//arr.push('dic');
+	//arr.push('book');
 	displayArr();
-	$('.l3-item-p').hover(function(){
-		$(this).find('.l3-item-1').toggleClass('display-block');
-		$(this).find('.l3-item').toggleClass('display-none');
-	})
+	
 
 	//더보기 또는 접기 버튼 클릭하면 
 	$('.more').click(function(){
@@ -169,6 +168,7 @@ $(document).ready(function(){
 		$('.sub1').addClass('display-none');
 		$('.sub2').removeClass('display-none');
 		$('.setting-list input[type=checkbox]').removeClass('display-none');
+
 	})
 	//각 서브메뉴 닫기 버튼 클릭
 	$('.more-sub-menu .more-close').click(function(){
@@ -179,14 +179,35 @@ $(document).ready(function(){
 		moreBoxClose();
 		moreBoxOpen();
 	})
+	//확인버튼
+	$('.sub2 a:nth-child(2)').click(function(){
+		//tmpArr에 있는 값을 arr에 저장
+		arr = copyArr(tmpArr);
+
+		moreBoxClose();
+		displayArr();
+	})
+	//체크박스 선택 시
+	$('.setting-list input[type=checkbox]').change(function(){
+		//체크박스 값에 따라 배열 처리 후 알람을 띄울지 말지 결정
+		if(arrCheck($(this),5) == 0)
+			alert('최대 5개까지 선택가능합니다.');
+	});
 	function moreBoxOpen(){
 		moreBox();
+		//더보기 메뉴 열 때 arr에 있는 값을 tmpArr에 복사
+		tmpArr = copyArr(arr);
+
 		$('.sub1').removeClass('display-none');
+		//arr에 있는 값을 통해 체크박스 체크 여부 결정
+		checkArr();
 	}
 	function moreBoxClose(){
 		moreBox();
 		$('.sub2').addClass('display-none');
 		$('.setting-list input[type=checkbox]').addClass('display-none');	
+		//tmpArr 비움
+		tmpArr = [];
 	}
 	function moreBox(){
 		$('.more-bg-box').toggleClass('display-none');
