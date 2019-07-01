@@ -123,9 +123,32 @@ $(document).ready(function(){
 			return 0;
 		}
 	}
-
-
-
+	//arr에 있는 값을 토대로 배너에 적용하는 함수
+	function displayArr(){
+		if(arr.length == 0){
+			var i = 0;
+			$('.banner-black .banner-img').each(function(){
+				//기존에 불필요한 클래스 제거
+				$(this).parent().removeClass('display-none');
+				$(this).attr('class','banner-img');
+				$(this).addClass(defaultArr[i++]);
+			})
+		}else{
+			var i = 0;
+			$('.banner-black .banner-img').each(function(){
+				//기존에 불필요한 클래스 제거
+				$(this).parent().removeClass('display-none');
+				$(this).attr('class','banner-img');
+				if(i<arr.length){
+					$(this).addClass(arr[i++]);
+				}else{
+					$(this).parent().addClass('display-none');
+				}
+			})
+		}
+	}
+	//arr.push('dic');
+	displayArr();
 	$('.l3-item-p').hover(function(){
 		$(this).find('.l3-item-1').toggleClass('display-block');
 		$(this).find('.l3-item').toggleClass('display-none');

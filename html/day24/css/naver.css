@@ -232,6 +232,15 @@ a{
 	width: 27px;
 	background-position: -279px 0;
 }
+.empty{
+	display: block;
+	margin-top: -8px;
+	margin-left: -10px;
+	width: 62px;
+	height: 28px;
+	border: 1px solid #e3e7ee;
+	background: #fcfdfe;
+}
 .bar{
 	float: left;
 	margin: 18px 16px 0;
