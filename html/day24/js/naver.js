@@ -168,7 +168,8 @@ $(document).ready(function(){
 		$('.sub1').addClass('display-none');
 		$('.sub2').removeClass('display-none');
 		$('.setting-list input[type=checkbox]').removeClass('display-none');
-
+		//arr를 이용하여 박스 그리기
+		drawOpenBox(arr);
 	})
 	//각 서브메뉴 닫기 버튼 클릭
 	$('.more-sub-menu .more-close').click(function(){
@@ -192,7 +193,39 @@ $(document).ready(function(){
 		//체크박스 값에 따라 배열 처리 후 알람을 띄울지 말지 결정
 		if(arrCheck($(this),5) == 0)
 			alert('최대 5개까지 선택가능합니다.');
+		//tmpArr를 이용하여 그리기
+		drawOpenBox(tmpArr);
+
 	});
+	//매개변수 arr에 따라 박스를 그리는 함수
+	function drawOpenBox(arr){
+		//모든 배너의 클래스를 기본 클래스로 설정
+		$('.banner-black .banner-img').attr('class','banner-img');
+		//변수 i 생성 및 0으로 초기화
+		var i = 0;
+		//모든 배너의 개체 정보를 가져옴
+		$('.banner-black .banner-img').each(function(){
+			//내 부모에 display-none 클래스가 적용되어 있을 수 있기
+			//때문에 제거
+			$(this).parent().removeClass('display-none');
+			//i가 arr의 길이보다 작으면 
+			if(i<arr.length)
+				//나에다 arr배열에 있는 클래스 추가 후 i증가
+				$(this).addClass(arr[i++]);
+			//i가 5보다 작으면 
+			else if(i<5){
+				//빈상자를 그리기위한 클래스 추가
+				$(this).addClass('empty');
+				//i증가
+				i++;
+			}
+			else{
+				//부모의 클래스에 display-none 추가
+				$(this).parent().addClass('display-none');
+			}
+		})
+	}
+
 	function moreBoxOpen(){
 		moreBox();
 		//더보기 메뉴 열 때 arr에 있는 값을 tmpArr에 복사
