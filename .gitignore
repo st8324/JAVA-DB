@@ -1,4 +1,4 @@
-﻿
+
 # Created by https://www.gitignore.io/api/java
 # Edit at https://www.gitignore.io/?templates=java
 
@@ -31,3 +31,6 @@ bin/*.gitignore
 hs_err_pid*
 
 # End of https://www.gitignore.io/api/java
+spring/\.settings/
+target/
+spring/src/test/resources/log4j\.xml
