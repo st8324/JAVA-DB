@@ -6,17 +6,6 @@
 	<title>Home</title>
 </head>
 <body>
-
-<form method="get" action="<%=request.getContextPath()%>/">
-	<input name="num1" value="${a}">
-	<input name="num2" value="${b}">
-	<input name="res" value="${c}" readonly>
-	<br>
-	<button>결과</button>
-</form>
-<form method="get" action="<%=request.getContextPath()%>/">
-	<input name="count" value="${count}" readonly>
-	<button>증가</button>
-</form>
+<a href="<%=request.getContextPath()%>/signup">회원가입</a>
 </body>
 </html>
