@@ -45,6 +45,32 @@ public class HomeController {
 		else
 			return "redirect:/signup";
 	}
-	
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	public String signinGet(Model model) {
+		logger.info("로그인페이지 실행");
+		return "signin";
+	}
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	public String signinPost(Model model, MemberVO mVo) {
+		logger.info("로그인 진행중");
+		System.out.println(mVo);
+		if(memberService.signin(mVo)) {
+			return "redirect:/";
+		}
+		return "redirect:/signin";
+	}
+	@RequestMapping(value = "/member/modify", method = RequestMethod.GET)
+	public String memberModifyGet() {
+		logger.info("회원정보수정페이지 실행");
+		return "member/modify";
+	}
+	@RequestMapping(value = "/member/modify", method = RequestMethod.POST)
+	public String memberModifyPost(MemberVO mVo, String oldPw) {
+		logger.info("회원정보수정 진행 중");
+		if(memberService.modify(mVo,oldPw)) {
+			return "redirect:/";
+		}
+		return "redirect:/member/modify";
+	}
 }
 

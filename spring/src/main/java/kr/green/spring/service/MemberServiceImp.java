@@ -25,4 +25,27 @@ public class MemberServiceImp implements MemberService {
 		memberDao.signup(mVo);
 		return true;
 	}
+
+	@Override
+	public boolean signin(MemberVO mVo) {
+		if(mVo == null)//예외처리
+			return false;
+		MemberVO oVo = memberDao.getMember(mVo.getId());
+		if(oVo == null)
+			return false;
+		if(oVo.getPw().equals(mVo.getPw()))
+			return true;
+		return false;
+	}
+
+	@Override
+	public boolean modify(MemberVO mVo, String oldPw) {
+		if(mVo == null)	
+			return false;
+		if(memberDao.getMember(mVo.getId()).getPw().equals(oldPw)) {
+			memberDao.modify(mVo);
+			return true;
+		}
+		return false;
+	}
 }
