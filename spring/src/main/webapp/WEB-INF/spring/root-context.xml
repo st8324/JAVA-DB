@@ -19,7 +19,7 @@
 	    <property name="url"
 	              value="jdbc:mysql://localhost:3306/university?useSSL=false&amp;serverTimezone=UTC">
 	    </property>
-	    <property name="username" value="stajun"></property>
+	    <property name="username" value="root"></property>
 	    <property name="password" value="cjgreen"></property>
 	</bean> 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
