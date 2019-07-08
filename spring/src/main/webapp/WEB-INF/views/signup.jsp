@@ -54,6 +54,10 @@
 				alert('비밀번호와 일치하지 않습니다.')
 				return false;
 			}
+			if($('#signup input[type=email]').val().length == 0){
+				alert('이메일을 입력해주세요.')
+				return false;
+			}
 			alert('회원가입에 성공했습니다.');
 			return true;
 		})	
