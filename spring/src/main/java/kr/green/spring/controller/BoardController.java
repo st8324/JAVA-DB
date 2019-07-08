@@ -25,4 +25,10 @@ public class BoardController {
 		model.addAttribute("list", boardList);
 		return "board/list";
 	}
+	@RequestMapping(value="/display", method=RequestMethod.GET)
+	public String boardDisplayGet(Model model,Integer num) {
+		BoardVO bVo = boardService.getBoard(num);
+		model.addAttribute("board", bVo);
+		return "board/display";
+	}
 }
