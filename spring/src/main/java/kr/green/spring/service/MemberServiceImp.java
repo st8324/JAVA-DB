@@ -27,15 +27,15 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	@Override
-	public boolean signin(MemberVO mVo) {
+	public MemberVO signin(MemberVO mVo) {
 		if(mVo == null)//예외처리
-			return false;
+			return null;
 		MemberVO oVo = memberDao.getMember(mVo.getId());
 		if(oVo == null)
-			return false;
+			return null;
 		if(oVo.getPw().equals(mVo.getPw()))
-			return true;
-		return false;
+			return oVo;
+		return null;
 	}
 
 	@Override

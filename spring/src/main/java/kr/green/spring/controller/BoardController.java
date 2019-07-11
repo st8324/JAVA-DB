@@ -27,7 +27,10 @@ public class BoardController {
 	}
 	@RequestMapping(value="/display", method=RequestMethod.GET)
 	public String boardDisplayGet(Model model,Integer num) {
+		//조회수 증가
+		boardService.updateViews(num);
 		BoardVO bVo = boardService.getBoard(num);
+		
 		model.addAttribute("board", bVo);
 		return "board/display";
 	}

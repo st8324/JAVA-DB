@@ -54,7 +54,9 @@ public class HomeController {
 	public String signinPost(Model model, MemberVO mVo) {
 		logger.info("로그인 진행중");
 		System.out.println(mVo);
-		if(memberService.signin(mVo)) {
+		MemberVO user = memberService.signin(mVo);
+		if(user != null) {
+			model.addAttribute("user", user);
 			return "redirect:/";
 		}
 		return "redirect:/signin";

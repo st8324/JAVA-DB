@@ -7,5 +7,6 @@
 </head>
 <body>
 <a href="<%=request.getContextPath()%>/signup">회원가입</a>
+${user}
 </body>
 </html>
