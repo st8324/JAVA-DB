@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>게시판</h1>
+	<h1>게시판${user}</h1>
 	<table class="table">
 		<tr>
 			<th width="5%">번호</th>

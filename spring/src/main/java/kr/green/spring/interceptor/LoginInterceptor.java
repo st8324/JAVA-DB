@@ -18,6 +18,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	    Object handler, 
 	    ModelAndView modelAndView)
 	    throws Exception {
+		/* 컨트롤러에서 Model에 담아준 user 정보를 가져옴 */
 	    ModelMap modelMap = modelAndView.getModelMap();
 	    MemberVO user = (MemberVO)modelMap.get("user");
 
