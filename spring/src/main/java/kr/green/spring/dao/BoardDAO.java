@@ -14,4 +14,6 @@ public interface BoardDAO {
 
 	void updateBoard(BoardVO tmp);
 
+	void registerBoard(BoardVO boardVo);
+
 }

@@ -2,6 +2,8 @@ package kr.green.spring.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,5 +35,29 @@ public class BoardController {
 		
 		model.addAttribute("board", bVo);
 		return "board/display";
+	}
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	public String boardModifyGet(Model model,Integer num) {
+
+		BoardVO bVo = boardService.getBoard(num);
+		
+		model.addAttribute("board", bVo);
+		return "board/modify";
+	}
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String boardModifyPost(Model model,BoardVO bVo, HttpServletRequest r) {
+		boardService.updateBoard(bVo,r);
+		model.addAttribute("num", bVo.getNum());
+		return "redirect:/board/display";
+	}
+	@RequestMapping(value="register", method=RequestMethod.GET)
+	public String boardRegisterGet() {
+		return "board/register";
+	}
+	@RequestMapping(value="register", method=RequestMethod.POST)
+	public String boardRegisterPost(BoardVO boardVo) {
+		System.out.println(boardVo);
+		boardService.registerBoard(boardVo);
+		return "redirect:/board/register";
 	}
 }

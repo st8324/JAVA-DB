@@ -1,5 +1,8 @@
 package kr.green.spring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +56,6 @@ public class HomeController {
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public String signinPost(Model model, MemberVO mVo) {
 		logger.info("로그인 진행중");
-		System.out.println(mVo);
 		MemberVO user = memberService.signin(mVo);
 		if(user != null) {
 			model.addAttribute("user", user);
@@ -73,6 +75,12 @@ public class HomeController {
 			return "redirect:/";
 		}
 		return "redirect:/member/modify";
+	}
+	@RequestMapping(value="/signout")
+	public String signout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("user");
+		return "redirect:/";
 	}
 }
 
