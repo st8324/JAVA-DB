@@ -37,8 +37,10 @@ public class BoardController {
 		return "board/display";
 	}
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
-	public String boardModifyGet(Model model,Integer num) {
-
+	public String boardModifyGet(Model model,Integer num, HttpServletRequest r) {
+		if(!boardService.isWriter(num,r)) {
+			return "redirect:/board/list";
+		}
 		BoardVO bVo = boardService.getBoard(num);
 		
 		model.addAttribute("board", bVo);
@@ -61,8 +63,10 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	@RequestMapping(value="delete", method=RequestMethod.GET)
-	public String boardDeleteGet(Integer num) {
-		boardService.deleteBoard(num);
+	public String boardDeleteGet(Integer num,HttpServletRequest r) {
+		if(boardService.isWriter(num,r)) {
+			boardService.deleteBoard(num);
+		}
 		return "redirect:/board/list";
 	}
 }

@@ -60,4 +60,15 @@ public class BoardServiceImp implements BoardService {
 		boardDao.deleteBoard(num);
 	}
 
+	@Override
+	public boolean isWriter(Integer num, HttpServletRequest r) {
+		BoardVO board = boardDao.getBoard(num);
+		MemberVO user = (MemberVO)r.getSession().getAttribute("user");
+		if(board != null && user != null 
+				&& board.getWriter().equals(user.getId())) {
+			return true;
+		}
+		return false;
+	}
+
 }

@@ -20,4 +20,6 @@ public interface BoardService {
 
 	void deleteBoard(Integer num);
 
+	boolean isWriter(Integer num, HttpServletRequest r);
+
 }
