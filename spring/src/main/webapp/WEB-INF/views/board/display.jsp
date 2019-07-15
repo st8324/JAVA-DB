@@ -46,6 +46,11 @@
 				<button type="button" class="btn btn-outline-success">수정</button>
 			</a>
 		</c:if>
+		<c:if test="${user.id eq board.writer }">
+			<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}">
+				<button type="button" class="btn btn-outline-success">삭제</button>
+			</a>
+		</c:if>
 	</div>
 	
 </body>

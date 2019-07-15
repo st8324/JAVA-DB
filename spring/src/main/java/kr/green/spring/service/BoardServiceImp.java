@@ -54,4 +54,10 @@ public class BoardServiceImp implements BoardService {
 		boardDao.registerBoard(boardVo);
 	}
 
+	@Override
+	public void deleteBoard(Integer num) {
+		if(num == null || num <= 0)	return;
+		boardDao.deleteBoard(num);
+	}
+
 }

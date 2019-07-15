@@ -58,6 +58,11 @@ public class BoardController {
 	public String boardRegisterPost(BoardVO boardVo) {
 		System.out.println(boardVo);
 		boardService.registerBoard(boardVo);
-		return "redirect:/board/register";
+		return "redirect:/board/list";
+	}
+	@RequestMapping(value="delete", method=RequestMethod.GET)
+	public String boardDeleteGet(Integer num) {
+		boardService.deleteBoard(num);
+		return "redirect:/board/list";
 	}
 }

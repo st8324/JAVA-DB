@@ -18,4 +18,6 @@ public interface BoardService {
 
 	void registerBoard(BoardVO boardVo);
 
+	void deleteBoard(Integer num);
+
 }
