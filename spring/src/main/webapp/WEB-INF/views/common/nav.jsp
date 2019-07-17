@@ -6,7 +6,7 @@
   <a class="navbar-brand" href="#">Logo</a>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="https://github.com/st8324" target="_blank">github</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Link</a>
