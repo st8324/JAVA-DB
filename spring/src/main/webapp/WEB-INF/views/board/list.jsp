@@ -54,14 +54,15 @@
         </li>
 	    </c:if>
 		</ul>
-		<form class="float-right" method="get" action="<%=request.getContextPath()%>/board/list">
-			<select name="type" class="float-left">
+		<form class="float-right input-group w-50" method="get" action="<%=request.getContextPath()%>/board/list">
+			<select name="type" class="float-left form-control">
 				<option value="0">선택</option>
 				<option value="1" <c:if test="${pageMaker.criteria.type eq 1}">selected</c:if>>제목</option>
 				<option value="2" <c:if test="${pageMaker.criteria.type eq 2}">selected</c:if>>내용</option>
 				<option value="3" <c:if test="${pageMaker.criteria.type eq 3}">selected</c:if>>작성자</option>
 			</select>
-			<input type="text" name="search" class="float-left" value="${pageMaker.criteria.search}">
+ 			<input type="text" name="search" class="float-left form-control" value="${pageMaker.criteria.search}">
+
 			<button type="submit" class="btn btn-outline-success float-left">검색</button>
 		</form>
 		<a href="<%=request.getContextPath()%>/board/register">
