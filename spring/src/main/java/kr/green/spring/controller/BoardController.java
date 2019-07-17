@@ -27,13 +27,13 @@ public class BoardController {
 		cri.setPerPageNum(2);
 		ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
 		PageMaker pm = new PageMaker();
-		
+		System.out.println(cri);
 		//pm의 현재 페이지 정보 설정
 		pm.setCriteria(cri);
 		//pm의 displayPageNum 설정
 		pm.setDisplayPageNum(5);
 		//pm의 총 게시글 수 설정
-		int totalCount = boardService.getTotalCount();
+		int totalCount = boardService.getTotalCount(cri);
 		pm.setTotalCount(totalCount);
 		model.addAttribute("pageMaker", pm);
 		model.addAttribute("list", boardList);
