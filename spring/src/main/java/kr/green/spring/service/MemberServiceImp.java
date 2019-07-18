@@ -1,6 +1,7 @@
 package kr.green.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring.dao.MemberDAO;
@@ -11,6 +12,8 @@ public class MemberServiceImp implements MemberService {
 
 	@Autowired
 	MemberDAO memberDao;
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
 	public boolean signup(MemberVO mVo) {
@@ -22,6 +25,10 @@ public class MemberServiceImp implements MemberService {
 		mVo.setName("");
 		if(memberDao.getMember(mVo.getId()) != null)
 			return false;
+		//회원가입창에서 입력받은 암호를 암호화 시킴
+		String encodePw = passwordEncoder.encode(mVo.getPw());
+		//회원 정보의 비밀번호를 암호화된 비밀번호로 변경
+		mVo.setPw(encodePw);
 		memberDao.signup(mVo);
 		return true;
 	}
@@ -33,7 +40,7 @@ public class MemberServiceImp implements MemberService {
 		MemberVO oVo = memberDao.getMember(mVo.getId());
 		if(oVo == null)
 			return null;
-		if(oVo.getPw().equals(mVo.getPw()))
+		if(passwordEncoder.matches(mVo.getPw(), oVo.getPw()))
 			return oVo;
 		return null;
 	}
