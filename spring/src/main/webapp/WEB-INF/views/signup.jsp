@@ -40,10 +40,19 @@
 			return true;
 		return false;
 	}
+	
+	var isCheck = false;
+	
 	$(document).ready(function(){
+		
 		$('#signup').submit(function(){
 			if(!checkLength('#signup input[name=id]',8,13)){
 				alert('아이디는 8~13자리입니다.');
+				return false;
+			}
+			
+			if(!isCheck){
+				alert('아이디 중복검사를 하세요.');
 				return false;
 			}
 			if(!checkLength('#signup input[name=pw]',8,13)){
@@ -74,13 +83,18 @@
 	        dataType:"json",
 	        contentType:"application/json; charset=UTF-8",
 	        success : function(data){
-	            if(data.id){
+	            if(!data.isMember){
 	            	alert('회원 가입이 가능한 아이디입니다.');
+	            	isCheck = true;
 	            }else{
-	            	alert('이미 가입된 회원입니다.')
+	            	alert('이미 가입된 회원입니다.');
+	            	isCheck = false;
 	            }
 	        }
 	    });
+		})
+		$('input[name=id]').change(function(){
+			isCheck = false;
 		})
 	})
 		
