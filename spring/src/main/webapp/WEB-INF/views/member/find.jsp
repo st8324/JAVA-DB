@@ -19,12 +19,16 @@
 				$.ajax({
 		        async:true,
 		        type:'POST',
-		        data:{'id':id, 'email':email},
+		        data:{'id':id, 'email': email},
 		        url:"<%=request.getContextPath()%>/checkemail",
 		        dataType:"json",
 		        contentType:"application/json; charset=UTF-8",
 		        success : function(data){
-		            console.log(data);
+		            if(data.isOk){
+		            	$('#findForm').submit();
+		            }else{
+		            	alert('일치하는 정보가 없습니다.');
+		            }
 		        }
 		    });
 			});
