@@ -41,7 +41,13 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("메인페이지 실행");
-		
+		String str ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String pw="";
+		for(int i=0; i< 8; i++) {
+			int r = (int)(Math.random()*62);
+			pw += str.charAt(r);
+		}
+		System.out.println("비밀번호 : "+pw);
 		return "home";
 	}
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -123,7 +129,7 @@ public class HomeController {
 	        MimeMessage message = mailSender.createMimeMessage();
 	        MimeMessageHelper messageHelper 
 	            = new MimeMessageHelper(message, true, "UTF-8");
-
+	        
 	        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
 	        messageHelper.setTo(tomail);     // 받는사람 이메일
 	        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
@@ -136,5 +142,26 @@ public class HomeController {
 
 	    return "redirect:/mail/mailForm";
 	}
+	@RequestMapping(value = "/password/find")
+	public String passwordFind() {
+
+	    return "member/find";
+	}  
+	@RequestMapping(value ="/checkemail")
+	@ResponseBody
+	public Map<Object, Object> emailcheck(
+			@RequestBody String str){
+
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    System.out.println(str);
+	    String [] arr = new String [2];
+	    arr = str.split("&");
+	    String id = arr[0];
+	    String email = arr[1];
+	    System.out.println(id);
+	    System.out.println(email);
+	    return map;
+	}
+
 }
 

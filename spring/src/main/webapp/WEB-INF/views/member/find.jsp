@@ -12,7 +12,24 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('input[name=id]').focus();
+			$('#findBtn').click(function(){
+				//ajax를 통해 아이디와 이메일를 서버에 전송 후 일치여부를 확인 
+				var id = $('input[name=id]').val();
+				var email = $('input[name=email]').val();
+				$.ajax({
+		        async:true,
+		        type:'POST',
+		        data:{'id':id, 'email':email},
+		        url:"<%=request.getContextPath()%>/checkemail",
+		        dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+		        success : function(data){
+		            console.log(data);
+		        }
+		    });
+			});
 		})
+		
 	</script>
 	<title>로그인</title>
 	<style>
@@ -35,20 +52,19 @@
 <body>
 	<div>
 		<div class="offset-4 col-4 border border-dark mt-5 clearfix">
-			<h1 class="text-center">로그인</h1>
-			<form method="post" action="<%=request.getContextPath()%>/signin">
+			<h1 class="text-center">비밀번호 찾기</h1>
+			<form method="post" action="<%=request.getContextPath()%>/password/send" id="findForm">
 				<div class="row">
 					<label class="col-4">아이디</label>
 					<input type="text"class="form-control col-7" placeholder="아이디" name="id" tabindex="1">
 				</div>
 				<div class="row">
-					<label class="col-4">비밀번호</label>
-					<input type="password"class="form-control col-7" placeholder="비밀번호" name="pw" tabindex="2">
+					<label class="col-4">이메일</label>
+					<input type="email"class="form-control col-7" placeholder="이메일" name="email" tabindex="2">
 				</div>
-				<div class="offset-8 col-3 clearfix p-0">
-					<button class="btn btn-primary float-right">로그인</button>
+				<div class="offset-7 col-4 clearfix p-0">
+					<button type="button" class="btn btn-primary float-right" id="findBtn">비밀번호 찾기</button>
 				</div>
-				<a href="<%=request.getContextPath()%>/password/find" class="float-right">비밀번호 찾기</a>
 			</form>
 		</div>
 	</div>
