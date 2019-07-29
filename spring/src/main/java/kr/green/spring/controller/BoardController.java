@@ -76,7 +76,26 @@ public class BoardController {
 		return "board/modify";
 	}
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
-	public String boardModifyPost(Model model,BoardVO bVo, HttpServletRequest r) {
+	public String boardModifyPost(Model model,BoardVO bVo, HttpServletRequest r,MultipartFile file2) throws IOException, Exception  {
+		
+		if(file2.getOriginalFilename().length() != 0) {
+			String file = UploadFileUtils.uploadFile(
+							uploadPath, 
+							file2.getOriginalFilename(),
+							file2.getBytes());;
+			bVo.setFile(file);
+		}
+		//첨부파일에 추가한 파일이 없는 경우
+		else {
+			if(bVo.getFile().length() == 0) {
+				bVo.setFile("");
+			}else {
+				BoardVO tmp = boardService.getBoard(bVo.getNum());
+				bVo.setFile(tmp.getFile());	
+			}
+			
+		}
+		
 		boardService.updateBoard(bVo,r);
 		model.addAttribute("num", bVo.getNum());
 		return "redirect:/board/display";
@@ -105,16 +124,6 @@ public class BoardController {
 			boardService.deleteBoard(num);
 		}
 		return "redirect:/board/list";
-	}
-	
-	private String uploadFile(String name, byte[] data)
-		throws Exception{
-	    /* 고유한 파일명을 위해 UUID를 이용 */
-		UUID uid = UUID.randomUUID();
-		String savaName = uid.toString() + "_" + name;
-		File target = new File(uploadPath, savaName);
-		FileCopyUtils.copy(data, target);
-		return savaName;
 	}
 	
 	@RequestMapping("/download")
