@@ -1,18 +1,25 @@
 package kr.green.spring.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
+import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 
 @Controller
@@ -21,7 +28,9 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
-	
+	@Resource
+	private String uploadPath;
+		
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String boardListGet(Model model, Criteria cri) {
 		cri.setPerPageNum(2);
@@ -69,9 +78,17 @@ public class BoardController {
 		return "board/register";
 	}
 	@RequestMapping(value="register", method=RequestMethod.POST)
-	public String boardRegisterPost(BoardVO boardVo) {
-		System.out.println(boardVo);
+	public String boardRegisterPost(MultipartFile file2,BoardVO boardVo) throws IOException, Exception {
+
+		if(file2.getOriginalFilename().length() != 0) {
+			String file = UploadFileUtils.uploadFile(
+							uploadPath, 
+							file2.getOriginalFilename(),
+							file2.getBytes());;
+			boardVo.setFile(file);
+		}
 		boardService.registerBoard(boardVo);
+		
 		return "redirect:/board/list";
 	}
 	@RequestMapping(value="delete", method=RequestMethod.GET)
@@ -80,5 +97,15 @@ public class BoardController {
 			boardService.deleteBoard(num);
 		}
 		return "redirect:/board/list";
+	}
+	
+	private String uploadFile(String name, byte[] data)
+		throws Exception{
+	    /* 고유한 파일명을 위해 UUID를 이용 */
+		UUID uid = UUID.randomUUID();
+		String savaName = uid.toString() + "_" + name;
+		File target = new File(uploadPath, savaName);
+		FileCopyUtils.copy(data, target);
+		return savaName;
 	}
 }

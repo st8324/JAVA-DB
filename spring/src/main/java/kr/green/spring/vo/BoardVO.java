@@ -53,8 +53,17 @@ public class BoardVO {
 			e.printStackTrace();
 		}
 	}
-	public String getFile() {
+	public String getFile(){
 		return file;
+	}
+	public String getFileName() {
+		//UUID가 제거되도록 코드를 작성
+		//c52c5637-b875-41fe-a1ed-d24cf6caad2c_다운로드.jpg
+		//=>다운로드.jpg
+		if(file == null)
+			return "";
+		int index = file.indexOf("_");
+		return file.substring(index+1);
 	}
 	public void setFile(String file) {
 		this.file = file;

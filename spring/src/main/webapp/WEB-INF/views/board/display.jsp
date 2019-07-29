@@ -33,7 +33,7 @@
 		</div>
 		<div class="form-group">
 		  <label>첨부파일</label>
-		  <input type="text" class="form-control" name="file" value="${board.file}" readonly>
+		  <input type="text" class="form-control" name="file" value="${board.fileName}" readonly>
 		</div>
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-success">목록</button>
