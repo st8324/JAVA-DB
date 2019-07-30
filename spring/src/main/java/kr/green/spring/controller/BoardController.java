@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
+import kr.green.spring.service.PageMakerService;
 import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 
@@ -38,20 +39,17 @@ public class BoardController {
 	BoardService boardService;
 	@Resource
 	private String uploadPath;
-		
+	@Autowired
+	PageMakerService pageMakerService;
+	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public String boardListGet(Model model, Criteria cri) {
 		cri.setPerPageNum(2);
 		ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
-		PageMaker pm = new PageMaker();
-		System.out.println(cri);
-		//pm의 현재 페이지 정보 설정
-		pm.setCriteria(cri);
-		//pm의 displayPageNum 설정
-		pm.setDisplayPageNum(5);
-		//pm의 총 게시글 수 설정
 		int totalCount = boardService.getTotalCount(cri);
-		pm.setTotalCount(totalCount);
+		
+		PageMaker pm = pageMakerService.getPageMaker(5, cri, totalCount);
+		
 		model.addAttribute("pageMaker", pm);
 		model.addAttribute("list", boardList);
 		return "board/list";
