@@ -29,4 +29,6 @@ public interface BoardService {
 
 	int getTotalCountAll(Criteria cri);
 
+	void updateValid(BoardVO bVo);
+
 }

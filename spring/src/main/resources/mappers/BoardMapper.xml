@@ -80,4 +80,7 @@
   		ORDER BY num desc
   		limit #{pageStart}, #{perPageNum}
   </select>
+  <update id="updateValid">
+  	update board set valid=#{valid} where num = #{num}
+  </update>
 </mapper>

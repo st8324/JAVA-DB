@@ -25,4 +25,6 @@ public interface BoardDAO {
 
 	int getTotalCountAll(Criteria cri);
 
+	void updateValid(BoardVO bVo);
+
 }

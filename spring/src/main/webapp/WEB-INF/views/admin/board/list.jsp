@@ -7,6 +7,13 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('select[name=validState]').change(function(){
+		location.href = '<%=request.getContextPath()%>/admin/board/update?'+$(this).val();
+	})
+})
+</script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>	
@@ -29,7 +36,7 @@
 					<th>${board.registered}</th>
 					<th>${board.views}</th>
 					<th>
-						<select>
+						<select name="validState">
 							<option  value="num=${board.num}&valid=D&page=${pageMaker.criteria.page}" <c:if test="${board.valid eq 'D'}">selected</c:if> >삭제</option>
 							<option  value="num=${board.num}&valid=I&page=${pageMaker.criteria.page}"<c:if test="${board.valid eq 'I'}">selected</c:if> >게시</option>
 						</select>

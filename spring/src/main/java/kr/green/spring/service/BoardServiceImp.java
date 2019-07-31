@@ -89,4 +89,9 @@ public class BoardServiceImp implements BoardService {
 		return boardDao.getTotalCountAll(cri);
 	}
 
+	@Override
+	public void updateValid(BoardVO bVo) {
+		boardDao.updateValid(bVo);		
+	}
+
 }

@@ -58,4 +58,10 @@ public class AdminController {
 		
 		return "admin/board/list";
 	}
+	@RequestMapping(value="/admin/board/update", method=RequestMethod.GET)
+	public String adminBoardUpdateGet(Model model,Criteria cri,BoardVO bVo) {
+		boardService.updateValid(bVo);
+		model.addAttribute("page", cri.getPage());
+		return "redirect:/admin/board/list";
+	}
 }
