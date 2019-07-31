@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
+import kr.green.spring.service.BoardService;
 import kr.green.spring.service.MemberService;
 import kr.green.spring.service.PageMakerService;
+import kr.green.spring.vo.BoardVO;
 import kr.green.spring.vo.MemberVO;
 
 @Controller
@@ -20,6 +22,9 @@ public class AdminController {
 	MemberService memberService;
 	@Autowired
 	PageMakerService pageMakerService;
+	@Autowired
+	BoardService boardService;
+	
 	@RequestMapping(value="/admin/user/list", method=RequestMethod.GET)
 	public String adminUserListGet(Model model,Criteria cri) {
 		cri.setPerPageNum(5);
@@ -40,5 +45,17 @@ public class AdminController {
 		memberService.updateAuthority(mVo);
 		model.addAttribute("page", cri.getPage());
 		return "redirect:/admin/user/list";
+	}
+	@RequestMapping(value="/admin/board/list", method=RequestMethod.GET)
+	public String adminBoardListGet(Model model,Criteria cri) {
+		ArrayList<BoardVO> boardList = boardService.getBoardListAll(cri);
+		int totalCount = boardService.getTotalCountAll(cri);
+		
+		PageMaker pm = pageMakerService.getPageMaker(5, cri, totalCount);
+		
+		model.addAttribute("pageMaker", pm);
+		model.addAttribute("list", boardList);
+		
+		return "admin/board/list";
 	}
 }

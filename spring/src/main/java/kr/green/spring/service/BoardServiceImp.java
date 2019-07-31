@@ -77,4 +77,16 @@ public class BoardServiceImp implements BoardService {
 		return boardDao.getTotalCount(cri);
 	}
 
+	@Override
+	public ArrayList<BoardVO> getBoardListAll(Criteria cri) {
+		// TODO Auto-generated method stub
+		return boardDao.getBoardListAll(cri);
+	}
+
+	@Override
+	public int getTotalCountAll(Criteria cri) {
+		// TODO Auto-generated method stub
+		return boardDao.getTotalCountAll(cri);
+	}
+
 }
