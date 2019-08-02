@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
@@ -145,4 +146,17 @@ public class BoardController {
 	    }
 	    return entity;
 	}
+	@RequestMapping(value= {"/test/home","/test/home.do"})
+    public ModelAndView openTilesView(ModelAndView mv,Criteria cri) throws Exception{
+        mv.setViewName("/test/home");
+        cri.setPerPageNum(2);
+		ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
+		int totalCount = boardService.getTotalCount(cri);
+		
+		PageMaker pm = pageMakerService.getPageMaker(5, cri, totalCount);
+		
+        mv.addObject("pageMaker", pm);
+        mv.addObject("list", boardList);
+        return mv;
+    }
 }
