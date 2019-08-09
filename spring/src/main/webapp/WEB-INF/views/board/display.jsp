@@ -32,8 +32,11 @@
 		  <textarea rows="10" class="form-control" name="contents" readonly>${board.contents }</textarea>
 		</div>
 		<div class="form-group">
-		  <label>첨부파일</label>
-		  <a target="_blank" href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">${board.fileName}</a>
+		  <label>첨부파일</label><br>
+		  <c:forEach items="${files}" var="file">
+		  	<a target="_blank" href="<%=request.getContextPath()%>/board/download?fileName=${file.name}">${file.fileName}</a><br>
+		  </c:forEach>
+		  
 		</div>
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-success">목록</button>

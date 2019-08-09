@@ -1,11 +1,9 @@
 package kr.green.spring.controller;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +27,7 @@ import kr.green.spring.service.BoardService;
 import kr.green.spring.service.PageMakerService;
 import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
+import kr.green.spring.vo.FileVO;
 
 @Controller
 @RequestMapping(value="/board")
@@ -60,8 +57,9 @@ public class BoardController {
 		//조회수 증가
 		boardService.updateViews(num);
 		BoardVO bVo = boardService.getBoard(num);
-		
+		ArrayList<FileVO> files = boardService.getFiles(num);
 		model.addAttribute("board", bVo);
+		model.addAttribute("files", files);
 		return "board/display";
 	}
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
@@ -104,16 +102,17 @@ public class BoardController {
 		return "board/register";
 	}
 	@RequestMapping(value="register", method=RequestMethod.POST)
-	public String boardRegisterPost(MultipartFile file2,BoardVO boardVo) throws IOException, Exception {
-
-		if(file2.getOriginalFilename().length() != 0) {
-			String file = UploadFileUtils.uploadFile(
-							uploadPath, 
-							file2.getOriginalFilename(),
-							file2.getBytes());;
-			boardVo.setFile(file);
-		}
-		boardService.registerBoard(boardVo);
+	public String boardRegisterPost(MultipartFile[] file2,BoardVO boardVo) throws IOException, Exception {
+		int num = boardService.registerBoard(boardVo);
+		for(MultipartFile tmp : file2)
+			if(tmp.getOriginalFilename().length() != 0) {
+				String file = UploadFileUtils.uploadFile(
+								uploadPath, 
+								tmp.getOriginalFilename(),
+								tmp.getBytes());;
+				boardService.addFile(file,num);
+			}
+		
 		
 		return "redirect:/board/list";
 	}

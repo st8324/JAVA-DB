@@ -34,7 +34,7 @@
   </update>
   <insert id="registerBoard">
   	insert into board(title,contents,writer,file) 
-  	values(#{title},#{contents},#{writer},#{file})
+  	values(#{title},#{contents},#{writer},#{file});
   </insert>
   <update id="deleteBoard">
   	update board set
@@ -83,4 +83,13 @@
   <update id="updateValid">
   	update board set valid=#{valid} where num = #{num}
   </update>
+  <insert id="insertFile">
+  	insert into file(board_num,name) values(#{num},#{file})
+  </insert>
+  <select id="selectFileList" resultType="kr.green.spring.vo.FileVO">
+  	select * from file where board = #{num}
+  </select>
+  <select id="getMaxBoardNum" resultType="int">
+  	select max(num) from board;
+  </select>
 </mapper>

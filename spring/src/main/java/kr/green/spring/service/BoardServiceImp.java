@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import kr.green.spring.dao.BoardDAO;
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.BoardVO;
+import kr.green.spring.vo.FileVO;
 import kr.green.spring.vo.MemberVO;
 
 @Service
@@ -51,8 +52,10 @@ public class BoardServiceImp implements BoardService {
 	}
 
 	@Override
-	public void registerBoard(BoardVO boardVo) {
+	public int registerBoard(BoardVO boardVo) {
 		boardDao.registerBoard(boardVo);
+		return boardDao.getMaxBoardNum();
+		 
 	}
 
 	@Override
@@ -92,6 +95,16 @@ public class BoardServiceImp implements BoardService {
 	@Override
 	public void updateValid(BoardVO bVo) {
 		boardDao.updateValid(bVo);		
+	}
+
+	@Override
+	public void addFile(String file, int num) {
+		boardDao.insertFile(file,num);
+	}
+
+	@Override
+	public ArrayList<FileVO> getFiles(Integer num) {
+		return boardDao.selectFileList(num);
 	}
 
 }

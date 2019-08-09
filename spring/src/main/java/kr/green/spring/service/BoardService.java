@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.BoardVO;
+import kr.green.spring.vo.FileVO;
 
 public interface BoardService {
 
@@ -17,7 +18,7 @@ public interface BoardService {
 
 	void updateBoard(BoardVO bVo, HttpServletRequest r);
 
-	void registerBoard(BoardVO boardVo);
+	int registerBoard(BoardVO boardVo);
 
 	void deleteBoard(Integer num);
 
@@ -30,5 +31,9 @@ public interface BoardService {
 	int getTotalCountAll(Criteria cri);
 
 	void updateValid(BoardVO bVo);
+
+	void addFile(String file, int num);
+
+	ArrayList<FileVO> getFiles(Integer num);
 
 }

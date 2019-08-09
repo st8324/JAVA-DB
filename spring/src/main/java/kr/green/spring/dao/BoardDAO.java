@@ -2,8 +2,11 @@ package kr.green.spring.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.BoardVO;
+import kr.green.spring.vo.FileVO;
 
 public interface BoardDAO {
 
@@ -26,5 +29,11 @@ public interface BoardDAO {
 	int getTotalCountAll(Criteria cri);
 
 	void updateValid(BoardVO bVo);
+
+	void insertFile(@Param("file")String file, @Param("num")int num);
+
+	ArrayList<FileVO> selectFileList(Integer num);
+
+	int getMaxBoardNum();
 
 }

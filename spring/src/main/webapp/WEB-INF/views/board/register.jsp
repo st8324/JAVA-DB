@@ -42,5 +42,17 @@
 			<button type="submit" class="btn btn-outline-success">등록하기</button>
 		</div>
 	</form>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			addInputEvent();
+		})
+		function addInputEvent(){
+			$('input[name=file2]').change(function(){
+				var str = '<input type="file" class="form-control" name="file2" value="">'
+				$(this).after(str);
+				addInputEvent();
+			})
+		}
+	</script>
 </body>
 </html>
